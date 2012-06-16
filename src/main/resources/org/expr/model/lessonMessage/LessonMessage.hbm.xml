@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="org.expr.model.lessonMessage">
+	<class name="LessonMessage" >
+		<id name="id"  unsaved-value="null">
+			<generator class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator"/>
+		</id>
+		<property name="title"  not-null="true"/>
+		<property name="content" not-null="true"/>
+		<property name="createdAt" not-null="true"/>
+		<many-to-one name="lesson"  not-null="true"/>	
+		<many-to-one name="sender" not-null="true"/>
+		<set name="receivers" cascade="all,all-delete-orphan">
+			<key column="message_id"/>
+			<one-to-many entity-name="org.expr.model.lessonMessage.MessageReceiver"/>
+		</set>	
+	</class>
+</hibernate-mapping>

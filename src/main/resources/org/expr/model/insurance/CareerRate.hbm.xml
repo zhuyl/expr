@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!--职业费率表-->
+<hibernate-mapping package="org.expr.model.insurance" >
+	<class name="CareerRate" >
+		<id name="id"  unsaved-value="null">
+			<generator class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator"/>
+		</id>
+		<many-to-one name="product" />
+		<map name="rates" cascade="all,delete-orphan">
+			<key column="career_rate_id" />
+			<map-key type="long" column="grade" />
+			<element type="float" column="rate" />
+		</map>
+	</class>
+</hibernate-mapping>

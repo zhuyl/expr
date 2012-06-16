@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 案例表 -->
+<hibernate-mapping package="org.expr.model" >
+	<class name="Caze" >
+		<id name="id"  unsaved-value="null">
+			<generator class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator"/>
+		</id>
+		<property name="seq" not-null="true"  length="32" unique="true"/>
+		<property name="name" not-null="true"  length="100"/>
+		<property name="content"  length="3000"/>
+		<property name="author"  length="20"/>
+		<many-to-one name="lifeCycleType" />
+		<property name="createdAt"  not-null="true"/>
+		<property name="updatedAt"  not-null="true"/>	
+		<property name="publish"  not-null="true"/>
+		<property name="open"  not-null="true"/>
+		<many-to-one name="riskBearAttitude" />
+		<many-to-one name="questionnaire" />		
+		<property name="socialState"  />
+		<property name="changeYear"  />
+		<property name="dynaEquilibrium"  />	
+		<set name="analysis" table="analysis_cazes">
+			<key column="caze_id"/>
+			<many-to-many class="org.expr.model.basecode.Analysis" column="analysis_id"/>
+		</set>
+	</class>
+</hibernate-mapping>

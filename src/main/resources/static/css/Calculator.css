@@ -1,0 +1,73 @@
+body{ margin:0; padding:0;}
+div{ font-size:12px;}
+.formula{ width:100%; margin:0 auto; margin-top:7px;}
+.formula p{ margin:0; padding:0;}
+.formula .header{
+	font-weight:bold;
+	height:25px;
+	line-height:25px;
+	margin-bottom:7px;
+	background-image: url(../images/dline.gif);
+	background-repeat: repeat-x;
+	background-position: center bottom;
+}
+.inputBox{ border-top:1px solid #333; border-left:1px solid #333; border-right:1px solid #CCC; border-bottom:1px solid #CCC; font-size:12px; background:#F1F1F1; height:18px; line-height:18px; padding:0; margin:0;}
+.btn {BORDER:#7b9ebd 1px solid; FONT-SIZE:12px; padding:0 12px 3px 12px; CURSOR:pointer; background:url(btn_bg.gif) repeat-x; font-weight:bold; color:#333;}
+* html .btn{ padding:3px 0 0 0;}
+*+html .btn{ padding:3px 0 0 0;}
+
+.formula .line { height:25px; line-height:25px; clear:both;}
+.formula .line div{ float:left;}
+.formula .line div.btnDiv{ margin-left:10px;}
+.formula .line .text{ width:140px;}
+
+
+.formula .linex { clear:both; line-height:25px;}
+.formula .linex div{ float:left;}
+.formula .linex div.btnDiv{ margin-left:10px;}
+.formula .linex .text{ width:140px;}
+
+.formula .DataList{width:300px; border:1px solid #A3D1FF; padding:1px; padding-right:0px;margin:4px 0 7px 0; clear:both;}
+.formula .DataList ul{list-style:none; margin:0; padding:0; height:22px; line-height:22px; clear:both;position:relative;}
+.formula .DataList ul.headline li{ background:#E0F4FF; font-weight:bold; text-align:center;}
+.formula .DataList ul li{ float:left; width:140px; margin-right:1px; text-align:center;}
+
+.remark { line-height:18px;}
+
+.moreCAL { background:#FFEFAF; width:668px; margin:0 auto; font-size:12px;}
+.moreCAL b.leftkok,.moreCAL b.rightkok { background:url(calboxbg.gif); width:11px; height:7px; line-height:7px; font-size:1px; background-repeat:no-repeat;}
+.moreCAL .topLine,.moreCAL .footerLine { height:7px; line-height:7px; font-size:1px; clear:both; background:url(dore.gif) repeat-x;}
+.moreCAL .topLine { background-position:top left;}
+.moreCAL .footerLine { background-position:bottom left;}
+.moreCAL .topLine b.leftkok { background-position:0px 0px; float:left;}
+.moreCAL .topLine b.rightkok { background-position:-12px 0px; float:right;}
+.moreCAL .footerLine b.leftkok { background-position:0px -8px; float:left;}
+.moreCAL .footerLine b.rightkok { background-position:-12px -8px; float:right;}
+
+.moreCAL .topLine b.se { margin-top:1px;}
+b.se { float:right; width:532px; height:6px; line-height:6px; font-size:1px; background:#FDFACD;}
+
+.centerLine { clear:both; border:5px solid #DC6D04; border-bottom:0; border-top:0; display:block; height:1%;}
+.centerLine:after{content: ".";display: block;height: 0;clear: both;visibility: hidden;}
+.centerLine .u2{ height:50; line-height:50px;}
+.centerLine .link{ float:left; width:537px; background:#FDFACD;}
+.centerLine .link ul{ margin:0; padding:0; list-style:none; clear:both; height:25px; line-height:25px; font-size:13px;}
+.centerLine .link ul li{ float:left; background:url(Calculator.gif) 12px 6px no-repeat; text-indent:32px; width:130px;}
+.centerLine .link ul li{ float:left;}
+.title {
+	font-family: "";
+	font-size: 14px;
+	line-height: 25px;
+	font-weight: bold;
+	color: #000000;
+	text-decoration: none;
+}
+.explain {
+	font-family: "";
+	font-size: 12px;
+	line-height: 25px;
+	color: #336699;
+	text-decoration: none;
+	font-weight: bold;
+
+}

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<!-- 资金分析表 -->
+<hibernate-mapping package="org.expr.model.analysis.answer">
+	<class name="FundsAnalysisAnswer">
+		<id name="id" unsaved-value="null">
+			<generator
+				class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator" />
+		</id>
+		<property name="remark" />
+		<property name="score" />
+		<many-to-one name="caze" not-null="true" unique="true" />
+		<component name="form">
+			<property name="totalAssets" />
+			<property name="totalLiabilities" />
+			<property name="totalNet" />
+			<set name="assets" inverse="true" cascade="all,delete-orphan">
+				<key column="answer_id" />
+				<one-to-many class="org.expr.model.analysis.answer.FundsAssetAnswer" />
+			</set>
+			<set name="liabilities" inverse="true" cascade="all,delete-orphan">
+				<key column="answer_id" />
+				<one-to-many class="org.expr.model.analysis.answer.FundsLiabilityAnswer" />
+			</set>
+		</component>
+	</class>
+</hibernate-mapping>

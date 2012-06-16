@@ -1,0 +1,191 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- 案例 -->
+		<mapping resource="org/expr/model/Caze.hbm.xml"/>
+		<!--baseinfo  -->
+		
+		<!-- basecode -->
+		<mapping resource="org/expr/model/basecode/AnalysisPhase.hbm.xml"/>
+		<mapping resource="org/expr/model/basecode/Analysis.hbm.xml"/>
+		<mapping resource="org/expr/model/basecode/ExperimentType.hbm.xml"/>
+		<mapping resource="org/expr/model/basecode/LifeCycleType.hbm.xml"/>
+		<mapping resource="org/expr/model/basecode/RiskBearAttitude.hbm.xml"/>
+		<mapping resource="org/expr/model/basecode/AssetProject.hbm.xml"/>
+		<mapping resource="org/expr/model/basecode/LiabilityProject.hbm.xml"/>
+		<mapping resource="org/expr/model/basecode/IncomeProject.hbm.xml"/>
+		<mapping resource="org/expr/model/basecode/ExpendProject.hbm.xml"/>
+		<mapping resource="org/expr/model/basecode/FinanceProduct.hbm.xml"/>
+		<mapping resource="org/expr/model/basecode/FinanceTool.hbm.xml"/>
+		<mapping resource="org/expr/model/basecode/FinanceToolCategory.hbm.xml"/>
+		<mapping resource="org/expr/model/basecode/FinanceProductCategory.hbm.xml"/>
+		<mapping resource="org/expr/model/basecode/InsuranceType.hbm.xml"/>
+		<mapping resource="org/expr/model/basecode/InsurancePayType.hbm.xml"/>
+		<mapping resource="org/expr/model/basecode/InsurancePayTime.hbm.xml"/>
+		<mapping resource="org/expr/model/basecode/InsuranceTime.hbm.xml"/>
+		<mapping resource="org/expr/model/basecode/BenefitRelation.hbm.xml"/>
+		<mapping resource="org/expr/model/basecode/QuestionnaireType.hbm.xml"/>
+		<mapping resource="org/expr/model/basecode/QuestionType.hbm.xml"/>		
+		<mapping resource="org/expr/model/basecode/RiskGrade.hbm.xml"/>
+		<mapping resource="org/expr/model/basecode/FinanceType.hbm.xml"/>		
+		<mapping resource="org/expr/model/basecode/RatePayPeriod.hbm.xml"/>	
+		<mapping resource="org/expr/model/basecode/Mobility.hbm.xml"/>	
+		<mapping resource="org/expr/model/basecode/AimType.hbm.xml"/>	
+		<mapping resource="org/expr/model/basecode/MessageStatus.hbm.xml"/>	
+		<mapping resource="org/expr/model/basecode/ChangeType.hbm.xml"/>
+		<mapping resource="org/expr/model/basecode/CareerGrade.hbm.xml"/>		
+		<!-- analysis-->
+		<mapping resource="org/expr/model/analysis/result/BalanceOfPaymentResult.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/result/ExpendResult.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/result/FamilyAnalysisResult.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/result/FamilyMemberResult.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/result/FundsAnalysisResult.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/result/FundsAssetResult.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/result/FundsLiabilityResult.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/result/IncomeResult.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/result/InsuranceAnalysisResult.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/result/InsurancePolicyResult.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/result/RiskToleranceResult.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/result/QuestionAnswerResult.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/result/CazeResult.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/result/FinanceAssetAnalysisResult.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/result/FinanceAssetResult.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/result/AnalysisSummaryResult.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/result/ChangeResult.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/result/ChangeIncomeResult.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/result/ChangeExpendResult.hbm.xml"/>
+		
+		<mapping resource="org/expr/model/aim/result/AimItemResult.hbm.xml"/>
+        <mapping resource="org/expr/model/aim/result/AimResult.hbm.xml"/>
+		
+		<mapping resource="org/expr/model/analysis/answer/BalanceOfPaymentAnswer.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/answer/ExpendAnswer.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/answer/FamilyAnalysisAnswer.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/answer/FamilyMemberAnswer.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/answer/FinanceAssetAnalysisAnswer.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/answer/FinanceAssetAnswer.hbm.xml"/>
+		
+		<mapping resource="org/expr/model/analysis/answer/FundsAnalysisAnswer.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/answer/FundsAssetAnswer.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/answer/FundsLiabilityAnswer.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/answer/IncomeAnswer.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/answer/InsuranceAnalysisAnswer.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/answer/InsurancePolicyAnswer.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/answer/QuestionAnswerAnswer.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/answer/RiskToleranceAnswer.hbm.xml"/>
+        <mapping resource="org/expr/model/analysis/answer/ChangeAnswer.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/answer/ChangeIncomeAnswer.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/answer/ChangeExpendAnswer.hbm.xml"/>
+        <mapping resource="org/expr/model/analysis/answer/FundsAnalysisAnswer.hbm.xml"/>
+        <mapping resource="org/expr/model/analysis/answer/FundsAssetAnswer.hbm.xml"/>
+        <mapping resource="org/expr/model/analysis/answer/FundsLiabilityAnswer.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/answer/AnalysisSummaryAnswer.hbm.xml"/>
+
+        <mapping resource="org/expr/model/aim/answer/AimItemAnswer.hbm.xml"/>
+        <mapping resource="org/expr/model/aim/answer/AimAnswer.hbm.xml"/>
+        <!-- evaluation -->
+        <mapping resource="org/expr/model/evaluation/answer/BenefitItemAnswer.hbm.xml"/>
+        <mapping resource="org/expr/model/evaluation/answer/BenefitAnswer.hbm.xml"/>
+        <mapping resource="org/expr/model/evaluation/result/BenefitItemResult.hbm.xml"/>
+        <mapping resource="org/expr/model/evaluation/result/BenefitResult.hbm.xml"/>
+        
+        <mapping resource="org/expr/model/evaluation/answer/RiskItemAnswer.hbm.xml"/>
+        <mapping resource="org/expr/model/evaluation/answer/RiskAnswer.hbm.xml"/>
+        <mapping resource="org/expr/model/evaluation/result/RiskItemResult.hbm.xml"/>
+        <mapping resource="org/expr/model/evaluation/result/RiskResult.hbm.xml"/>
+        
+                
+        <mapping resource="org/expr/model/evaluation/answer/BalanceCompareAnswer.hbm.xml"/>
+        <mapping resource="org/expr/model/evaluation/answer/FinanceCompareAnswer.hbm.xml"/>   
+        <mapping resource="org/expr/model/evaluation/answer/InsuranceCompareAnswer.hbm.xml"/>  
+        <mapping resource="org/expr/model/evaluation/result/BalanceCompareResult.hbm.xml"/>       
+        <mapping resource="org/expr/model/evaluation/result/FinanceCompareResult.hbm.xml"/>   
+        <mapping resource="org/expr/model/evaluation/result/InsuranceCompareResult.hbm.xml"/>         
+        
+                    
+		<mapping resource="org/expr/model/analysis/ScoreRank.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/Option.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/Question.hbm.xml"/>
+		<mapping resource="org/expr/model/analysis/Questionnaire.hbm.xml"/>
+		<!--lesson-->
+		<mapping resource="org/expr/model/lesson/Experiment.hbm.xml"/>
+		<mapping resource="org/expr/model/lesson/ExperimentMark.hbm.xml"/>
+		<mapping resource="org/expr/model/lesson/Lesson.hbm.xml"/>
+		<mapping resource="org/expr/model/lesson/StudyLog.hbm.xml"/>
+		<!--exam-->
+		<mapping resource="org/expr/model/exam/ExamQuestion.hbm.xml"/>
+		<mapping resource="org/expr/model/exam/ExamPaper.hbm.xml"/>
+		<mapping resource="org/expr/model/exam/ExamQuestionMark.hbm.xml"/>
+		<mapping resource="org/expr/model/exam/ExamOption.hbm.xml"/>
+		<mapping resource="org/expr/model/exam/ExamItem.hbm.xml"/>
+		<mapping resource="org/expr/model/exam/result/ExamItemResult.hbm.xml"/>
+		<mapping resource="org/expr/model/exam/result/ExamQuestionResult.hbm.xml"/>
+		<mapping resource="org/expr/model/exam/result/ExamResult.hbm.xml"/>		
+		<!--insurance-->
+		<mapping resource="org/expr/model/insurance/InsuranceProduct.hbm.xml"/>
+		<mapping resource="org/expr/model/insurance/PayTimeRate.hbm.xml"/>
+		<mapping resource="org/expr/model/insurance/RateRegistry.hbm.xml"/>
+		<mapping resource="org/expr/model/insurance/Career.hbm.xml"/>
+		<mapping resource="org/expr/model/insurance/CareerProfile.hbm.xml"/>
+		<mapping resource="org/expr/model/insurance/CareerRate.hbm.xml"/>
+ 	    <mapping resource="org/expr/model/insurance/Policy.hbm.xml"/>
+ 	    <!--finance  -->
+ 		<mapping resource="org/expr/model/finance/Finance.hbm.xml"/>
+ 	    
+ 	    <!--assessment  -->
+ 	    <mapping resource="org/expr/model/assessment/Assessment.hbm.xml"/>
+ 	    <mapping resource="org/expr/model/assessment/AssessItem.hbm.xml"/> 	    
+ 	    <!--lessonnotice  -->
+  	    <mapping resource="org/expr/model/lessonNotice/LessonNotice.hbm.xml"/>
+  	    
+  	    <!--lessonmessage  -->
+  	    <mapping resource="org/expr/model/lessonMessage/LessonMessage.hbm.xml"/>
+  	    <mapping resource="org/expr/model/lessonMessage/MessageReceiver.hbm.xml"/>  	    
+  	    
+  	     <!--plan  --> 
+  	    <mapping resource="org/expr/model/plan/answer/CashPlanAnswer.hbm.xml"/>
+  	    <mapping resource="org/expr/model/plan/answer/MemberCashPlanAnswer.hbm.xml"/>   
+  	    <mapping resource="org/expr/model/plan/answer/BonusPlanAnswer.hbm.xml"/>
+  	    <mapping resource="org/expr/model/plan/answer/MemberBonusPlanAnswer.hbm.xml"/>  
+  	    <mapping resource="org/expr/model/plan/answer/ConsumePlanAnswer.hbm.xml"/>  
+  	    <mapping resource="org/expr/model/plan/answer/EducationPlanAnswer.hbm.xml"/>  
+  	    <mapping resource="org/expr/model/plan/answer/MemberEducationPlanAnswer.hbm.xml"/>    
+  	    <mapping resource="org/expr/model/plan/answer/MemberMedicalPlanAnswer.hbm.xml"/>  
+  	    <mapping resource="org/expr/model/plan/answer/MedicalPlanAnswer.hbm.xml"/>    
+  	    <mapping resource="org/expr/model/plan/answer/TripPlanAnswer.hbm.xml"/>  
+  	    <mapping resource="org/expr/model/plan/answer/InsurancePlanAnswer.hbm.xml"/>	
+ 	    <mapping resource="org/expr/model/plan/answer/InsurancePlanPolicyAnswer.hbm.xml"/> 
+  	    <mapping resource="org/expr/model/plan/answer/InvestmentPlanAnswer.hbm.xml"/> 
+  	    <mapping resource="org/expr/model/plan/answer/FinanceAssetPlanAnswer.hbm.xml"/>  
+  	    <mapping resource="org/expr/model/plan/answer/FinancePlanAnswer.hbm.xml"/>   
+ 	    <mapping resource="org/expr/model/plan/answer/EstateLoanPlanAnswer.hbm.xml"/>
+ 	    <mapping resource="org/expr/model/plan/answer/CarPlanAnswer.hbm.xml"/>
+ 	    <mapping resource="org/expr/model/plan/answer/PlanSummaryAnswer.hbm.xml"/>
+ 	    <mapping resource="org/expr/model/plan/answer/OtherIncomePlanAnswer.hbm.xml"/>  
+ 	    <mapping resource="org/expr/model/plan/answer/OtherExpensePlanAnswer.hbm.xml"/>  
+ 	    
+   	    <mapping resource="org/expr/model/plan/result/CashPlanResult.hbm.xml"/>
+  	    <mapping resource="org/expr/model/plan/result/MemberCashPlanResult.hbm.xml"/>
+  	    <mapping resource="org/expr/model/plan/result/BonusPlanResult.hbm.xml"/>
+  	    <mapping resource="org/expr/model/plan/result/MemberBonusPlanResult.hbm.xml"/> 
+  	    <mapping resource="org/expr/model/plan/result/OtherIncomePlanResult.hbm.xml"/>
+  	    <mapping resource="org/expr/model/plan/result/ConsumePlanResult.hbm.xml"/>  
+  	    <mapping resource="org/expr/model/plan/result/EducationPlanResult.hbm.xml"/>  
+  	    <mapping resource="org/expr/model/plan/result/MemberEducationPlanResult.hbm.xml"/>  
+  	    <mapping resource="org/expr/model/plan/result/MemberMedicalPlanResult.hbm.xml"/>  
+  	    <mapping resource="org/expr/model/plan/result/MedicalPlanResult.hbm.xml"/> 
+  	    <mapping resource="org/expr/model/plan/result/TripPlanResult.hbm.xml"/>   
+  	    <mapping resource="org/expr/model/plan/result/CarPlanResult.hbm.xml"/>  
+  	    <mapping resource="org/expr/model/plan/result/EstateLoanPlanResult.hbm.xml"/>  
+  	    <mapping resource="org/expr/model/plan/result/OtherExpensePlanResult.hbm.xml"/> 
+  	    <mapping resource="org/expr/model/plan/result/InsurancePlanResult.hbm.xml"/>	
+ 	    <mapping resource="org/expr/model/plan/result/InsurancePlanPolicyResult.hbm.xml"/> 
+ 	    <mapping resource="org/expr/model/plan/result/FinanceAssetPlanResult.hbm.xml"/>  
+  	    <mapping resource="org/expr/model/plan/result/FinancePlanResult.hbm.xml"/>   
+  	    <mapping resource="org/expr/model/plan/result/PlanSummaryResult.hbm.xml"/>	    
+	
+	
+	</session-factory>
+</hibernate-configuration>

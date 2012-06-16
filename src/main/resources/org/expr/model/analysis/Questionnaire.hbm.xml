@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 问卷表 -->
+<hibernate-mapping package="org.expr.model.analysis" >
+	<class name="Questionnaire" >
+		<id name="id"  unsaved-value="null">
+			<generator class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator"/>
+		</id>
+		<property name="name" />
+		<property name="author" />
+		<set name="questions">
+		   <key column="questionnaire_id"/>
+			<one-to-many class="Question" />
+		</set>
+		<set name="ranks" cascade="all,delete-orphan">
+		   <key column="questionnaire_id"/>
+			<one-to-many class="ScoreRank"/>
+		</set>
+		<many-to-one name="type"/>
+		<property name="status"/>	
+		<property name="head"/>		
+	</class>
+</hibernate-mapping>

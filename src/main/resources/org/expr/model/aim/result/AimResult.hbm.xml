@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+	<!-- 理财目标表 -->
+<hibernate-mapping package="org.expr.model.aim.result">
+	<class name="AimResult">
+		<id name="id" unsaved-value="null">
+			<generator
+				class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator" />
+		</id>
+		<set name="items" inverse="true" cascade="all,delete-orphan">
+			<key column="result_id" />
+			<one-to-many entity-name="org.expr.model.aim.result.AimItemResult" />
+		</set>
+		<many-to-one name="experiment" />
+		<many-to-one name="student" />
+		<property name="remark" />
+		<property name="score" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<!-- 资金分析表 -->
+<hibernate-mapping package="org.expr.model.analysis.result">
+	<class name="BalanceOfPaymentResult">
+		<id name="id" unsaved-value="null">
+			<generator
+				class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator" />
+		</id>
+		<property name="score" />
+		<property name="remark" />
+		<many-to-one name="experiment" />
+		<many-to-one name="student" />
+		<component name="form">
+			<property name="totalIncome" />
+			<property name="totalExpend" />
+			<property name="totalBalance" />
+			<!-- <property name="score" column="score_1"/> -->
+			<set name="incomes" inverse="true" cascade="all,delete-orphan">
+				<key column="result_id" />
+				<one-to-many class="org.expr.model.analysis.result.IncomeResult" />
+			</set>
+			<set name="expends" inverse="true" cascade="all,delete-orphan">
+				<key column="result_id" />
+				<one-to-many class="org.expr.model.analysis.result.ExpendResult" />
+			</set>
+		</component>
+	</class>
+</hibernate-mapping>

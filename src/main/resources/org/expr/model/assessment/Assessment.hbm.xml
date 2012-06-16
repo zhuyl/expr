@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!--评分标准表 -->
+<hibernate-mapping package="org.expr.model.assessment" >
+	<class name="Assessment" >
+		<id name="id"  unsaved-value="null">
+			<generator class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator"/>
+		</id>
+		<property name="name" />
+		<property name="author" />
+		<property name="remark" />
+		<set name="items" cascade="all,delete-orphan">
+		   <key column="assessment_id"/>
+			<one-to-many class="AssessItem" />
+		</set>	
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,1 @@
+<#if (actionErrors?? && actionErrors?size > 0)><#list actionErrors as amsg>${amsg}</#list></#if>

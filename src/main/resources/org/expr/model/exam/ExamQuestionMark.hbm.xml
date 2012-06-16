@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 大题得分表 -->
+<hibernate-mapping package="org.expr.model.exam" >
+	<class name="ExamQuestionMark" >
+		<id name="id"  unsaved-value="null">
+			<generator class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator"/>
+		</id>   
+		<property name="code" />						
+		<many-to-one name="paper" />
+		<set name="questions">
+		   <key column="questionMark_id"/>
+		   <many-to-many column="question_id" class="org.expr.model.exam.ExamQuestion"  />
+		</set>
+		<property name="mark" />			
+	</class>
+</hibernate-mapping>

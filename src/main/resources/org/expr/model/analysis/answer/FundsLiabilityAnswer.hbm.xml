@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<!-- 负债表 -->
+<hibernate-mapping package="org.expr.model.analysis.answer">
+	<class name="FundsLiabilityAnswer">
+		<id name="id" unsaved-value="null">
+			<generator
+				class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator" />
+		</id>
+		<many-to-one name="answer" not-null="true"/>
+		<component name="liability">
+			<many-to-one name="liabilityProject" not-null="true"/>
+			<property name="amount" />
+		</component>
+	</class>
+</hibernate-mapping>

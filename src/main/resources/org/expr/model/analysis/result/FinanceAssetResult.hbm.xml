@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<!-- 金融资产答案表 -->
+<hibernate-mapping package="org.expr.model.analysis.result">
+	<class name="FinanceAssetResult">
+		<id name="id" unsaved-value="null">
+			<generator
+				class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator" />
+		</id>
+		<many-to-one name="result" not-null="true" />
+		<component name="asset">
+			<property name="name" />
+			<many-to-one name="riskgrade" />
+			<property name="rate" />
+			<many-to-one name="financetype" />
+			<many-to-one name="ratepayperiod" />
+			<many-to-one name="mobility" />
+			<property name="amount" />
+		</component>
+	</class>
+</hibernate-mapping>

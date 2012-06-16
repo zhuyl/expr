@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 客户风险承受能力分析表 -->
+<hibernate-mapping package="org.expr.model.analysis" >
+	<class name="RiskTolerance" >
+		<id name="id"  unsaved-value="null">
+			<generator class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator"/>
+		</id>
+		<many-to-one name="caze" not-null="true" unique="true" />
+		<many-to-one name="questionnaire" />
+		<property name="questionScore" />
+		<property name="score" />
+		<set name="answers" inverse="true" cascade="all,delete-orphan">
+			<key  column="risk_tolerance_id"/>
+			<one-to-many class="org.expr.model.analysis.Answer"/>
+		</set>
+	</class>
+</hibernate-mapping>

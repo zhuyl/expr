@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!--实验 -->
+<hibernate-mapping package="org.expr.model.lesson" >
+	<class name="Experiment" >
+		<id name="id"  unsaved-value="null">
+			<generator class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator"/>
+		</id>
+		<many-to-one name="lesson" />
+		<many-to-one name="type" />
+		<many-to-one name="caze" not-null="true" unique="true" />	
+		<many-to-one name="assessment" />		
+		<property name="code"/>
+		<property name="name"/>
+		<property name="aim"/>
+		<property name="coach"/>
+		<property name="beginAt"/>
+		<property name="endAt"/>
+		<property name="publish"/>
+		<property name="publishScore"/>
+		<property name="compulsory"/>
+		<set name="students">
+		  <key column="experiment_id"/>
+		  <many-to-many class="com.ekingstar.eams.student.Student" column="student_id"/>
+		</set>
+		<set name="marks" cascade="all,delete-orphan" inverse="true">
+			<key column="experiment_id"/>
+			<one-to-many class="org.expr.model.lesson.ExperimentMark"/>
+		</set>
+	</class>
+</hibernate-mapping>

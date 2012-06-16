@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 问题表 -->
+<hibernate-mapping package="org.expr.model.assessment" >
+	<class name="AssessItem" >
+		<id name="id"  unsaved-value="null">
+			<generator class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator"/>
+		</id>
+		<many-to-one name="phase"/>
+		<many-to-one name="assessment" />
+		<property name="excellent" />
+		<property name="good" />
+		<property name="middle" />
+		<property name="pass" />
+		<property name="nopass" />
+	</class>
+</hibernate-mapping>

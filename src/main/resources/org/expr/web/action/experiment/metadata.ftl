@@ -1,0 +1,46 @@
+<#assign typeMap={'0101':'FamilyAnalysis',
+'0102':'FundsAnalysis','0103':'BalanceOfPayment',
+'0104':'InsuranceAnalysis','0105':'FinanceAssetAnalysis',
+'0106':'RiskTolerance','0107':'AnalysisSummary',
+'0201':'Aim',
+'0301':'CashPlan','0302':'BonusPlan','0303':'OtherIncomePlan',
+'0304':'ConsumePlan','0305':'EducationPlan','0306':'InsurancePlan',
+'0307':'MedicalPlan','0308','TripPlan','0309','FinanceAssetPlan',
+'0310':'CarPlan','0311':'EstateLoanPlan','0312':'OtherExpensePlan',
+'0313':'PlanSummary',
+'0401':'Change',
+'0501':'Benefit','0502':'Risk',
+'0503':'BalanceCompare','0504':'FinanceCompare',
+'0505':'InsuranceCompare'} />
+
+<#assign phaseMap={'01':'analysis',
+'02':'aim','03':'plan','04':'analysis','06':'evaluation'} />
+<#assign extParams={'0306':'&members=y','0307':'&members=y'} />
+
+<#assign typeUriMap={'0101':'familyAnalysis',
+'0102':'balanceSheet','0103':'incomeExpense',
+'0104':'insuranceAnalysis','0105':'financeAssetAnalysis',
+'0106':'riskToleranceAnalysis','0107':'analysisSummary',
+'0201':'aimAnalysis',
+'0301':'cashPlan','0302':'bonusPlan','0303':'otherIncomePlan',
+'0304':'consumePlan','0305':'educationPlan','0306':'insurancePlan',
+'0307':'medicalPlan','0308','tripPlan','0309','financeAssetPlan',
+'0310':'carPlan','0311':'estateLoanPlan','0312':'otherExpensePlan',
+'0313':'planSummary','0401':'changeAnalysis',
+'0501':'benefitAnalysis','0502':'riskAnalysis',
+'0503':'balanceCompare','0504':'financeCompare',
+'0505':'insuranceCompare'} />
+
+<#assign nameMap={'FamilyAnalysis':'家庭基本信息分析',
+'FundsAnalysis':'家庭资产负债分析','BalanceOfPayment':'家庭月度收支分析',
+'InsuranceAnalysis':'保险资产明细分析','FinanceAssetAnalysis':'金融资产明细分析',
+'RiskTolerance':'客户风险承受能力分析','AnalysisSummary':'客户分析综述',
+'Aim':'客户理财目标分析',
+'CashPlan':'工作收入规划','BonusPlan':'奖金收入规划','OtherIncomePlan':'其它收入规划',
+'ConsumePlan':'消费支出规划','EducationPlan':'教育支出规划','InsurancePlan':'保险支出规划',
+'MedicalPlan':'医疗支出规划','TripPlan','旅游支出规划','FinanceAssetPlan','投资支出规划',
+'CarPlan':'购车支出规划','EstateLoanPlan':'房产支出规划','OtherExpensePlan':'其他支出规划',
+'PlanSummary':'综合理财规划','Change':'动态平衡调整',
+'Benefit':'单个产品收益率分析','Risk':'单个产品风险分析',
+'BalanceCompare':'收支结构对比分析','FinanceCompare':'金融资产结构对比分析',
+'InsuranceCompare':'保险资产结构对比分析'} />

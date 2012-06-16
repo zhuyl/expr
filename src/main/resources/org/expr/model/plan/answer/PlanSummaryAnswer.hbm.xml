@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- 综合理财 -->
+<hibernate-mapping package="org.expr.model.plan.answer">
+	<class name="PlanSummaryAnswer">
+		<id name="id" unsaved-value="null">
+			<generator
+				class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator" />
+		</id>
+		<many-to-one name="caze" not-null="true" unique="true" />
+		<property name="remark" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<!-- 家庭成员结果表 -->
+<hibernate-mapping package="org.expr.model.analysis.result">
+	<class name="FamilyMemberResult">
+		<id name="id" unsaved-value="null">
+			<generator
+				class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator" />
+		</id>
+		<many-to-one name="result" not-null="true" />
+		<component name="member">
+			<property name="name" />
+			<property name="age" />
+			<property name="birthday" />
+			<many-to-one name="career" />
+			<many-to-one name="gender" />
+			<property name="salary" />
+			<property name="department" />
+			<many-to-one name="relation" />
+		</component>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,311 @@
+CREATE SCHEMA PUBLIC AUTHORIZATION DBA
+CREATE SEQUENCE SEQ_XTQX_JSMK_T AS INTEGER START WITH 1 
+CREATE SEQUENCE SEQ_XTQX_JSQX_T AS INTEGER START WITH 16 
+CREATE SEQUENCE SEQ_XTQX_JS_T AS INTEGER START WITH 1 
+CREATE SEQUENCE SEQ_XTQX_MKPZ_T AS INTEGER START WITH 1 
+CREATE SEQUENCE SEQ_XTQX_MK_T AS INTEGER START WITH 1 
+CREATE SEQUENCE SEQ_XTQX_XZCS_T AS INTEGER START WITH 1 
+CREATE SEQUENCE SEQ_XTQX_XZMS_T AS INTEGER START WITH 1 
+CREATE SEQUENCE SEQ_XTQX_XZQX_JSQX_T AS INTEGER START WITH 1 
+CREATE SEQUENCE SEQ_XTQX_XZQX_JSQX_XZX_T AS INTEGER START WITH 1 
+CREATE SEQUENCE SEQ_XTQX_XZQX_JS_T AS INTEGER START WITH 1 
+CREATE SEQUENCE SEQ_XTQX_XZQX_JS_XZX_T AS INTEGER START WITH 1 
+CREATE SEQUENCE SEQ_XTQX_XZQX_YHQX_T AS INTEGER START WITH 1 
+CREATE SEQUENCE SEQ_XTQX_XZQX_YHQX_XZX_T AS INTEGER START WITH 1 
+CREATE SEQUENCE SEQ_XTQX_XZQX_YH_T AS INTEGER START WITH 1 
+CREATE SEQUENCE SEQ_XTQX_XZQX_YH_XZX_T AS INTEGER START WITH 1 
+CREATE SEQUENCE SEQ_XTQX_YHLBPZ_T AS INTEGER START WITH 1 
+CREATE SEQUENCE SEQ_XTQX_YHLB_T AS INTEGER START WITH 1 
+CREATE SEQUENCE SEQ_XTQX_YHMK_T AS INTEGER START WITH 1 
+CREATE SEQUENCE SEQ_XTQX_YHQX_T AS INTEGER START WITH 1 
+CREATE SEQUENCE SEQ_XTQX_YH_T AS INTEGER START WITH 1 
+CREATE SEQUENCE SEQ_XTQX_ZXJL_T AS INTEGER START WITH 6 
+CREATE SEQUENCE SEQ_XTQX_ZY_T AS INTEGER START WITH 16 
+CREATE MEMORY TABLE XTQX_FJGL_JS_T(YHID BIGINT NOT NULL,JSID BIGINT NOT NULL,PRIMARY KEY(JSID,YHID))
+CREATE MEMORY TABLE XTQX_FJGL_YH_T(YHID BIGINT NOT NULL,SGLYHID BIGINT NOT NULL,PRIMARY KEY(SGLYHID,YHID))
+CREATE MEMORY TABLE XTQX_JSMK_T(ID BIGINT NOT NULL PRIMARY KEY,JSID BIGINT,MKID BIGINT,SFKY BOOLEAN NOT NULL)
+CREATE MEMORY TABLE XTQX_JSQX_T(ID BIGINT NOT NULL PRIMARY KEY,JSID BIGINT,SFKY BOOLEAN NOT NULL,ZYID BIGINT)
+CREATE MEMORY TABLE XTQX_JS_T(ID BIGINT NOT NULL PRIMARY KEY,JSMC VARCHAR(50) NOT NULL,JSMS VARCHAR(500),CJRID BIGINT NOT NULL,YHLBID BIGINT NOT NULL,CJSJ TIMESTAMP NOT NULL,XGSJ TIMESTAMP NOT NULL,SFKY BOOLEAN NOT NULL,CONSTRAINT SYS_CT_54 UNIQUE(JSMC))
+CREATE MEMORY TABLE XTQX_MKPZ_T(ID BIGINT NOT NULL PRIMARY KEY,MKPZMC VARCHAR(50),YHLBID BIGINT NOT NULL,CONSTRAINT SYS_CT_58 UNIQUE(MKPZMC))
+CREATE MEMORY TABLE XTQX_MK_T(ID BIGINT NOT NULL PRIMARY KEY,MKPZID BIGINT NOT NULL,MKDM VARCHAR(32) NOT NULL,MKBT VARCHAR(100) NOT NULL,MKBT_EN VARCHAR(100) NOT NULL,MKJJ VARCHAR(100),RKDZ VARCHAR(255),SFKY BOOLEAN NOT NULL,CONSTRAINT FK65CAF68FA7477BF9 FOREIGN KEY(MKPZID) REFERENCES XTQX_MKPZ_T(ID))
+CREATE MEMORY TABLE XTQX_MK_ZY_T(MKID BIGINT NOT NULL,ZYID BIGINT NOT NULL,PRIMARY KEY(MKID,ZYID),CONSTRAINT FKBE0E5F39924C28AC FOREIGN KEY(MKID) REFERENCES XTQX_MK_T(ID))
+CREATE MEMORY TABLE XTQX_XZCS_T(ID BIGINT NOT NULL PRIMARY KEY,CSM VARCHAR(255) NOT NULL,CSLX VARCHAR(255) NOT NULL,CSMS VARCHAR(255) NOT NULL,SFDZ BOOLEAN NOT NULL,YYLX VARCHAR(255),ZSX VARCHAR(255),BTSX VARCHAR(255))
+CREATE MEMORY TABLE XTQX_XZMS_CS_T(XZMSID BIGINT NOT NULL,MSCSID BIGINT NOT NULL,PRIMARY KEY(XZMSID,MSCSID),CONSTRAINT FK253B9EE061FAE6AB FOREIGN KEY(MSCSID) REFERENCES XTQX_XZCS_T(ID))
+CREATE MEMORY TABLE XTQX_XZMS_T(ID BIGINT NOT NULL PRIMARY KEY,MSM VARCHAR(255) NOT NULL,MSNR VARCHAR(255) NOT NULL,MSMS VARCHAR(255) NOT NULL)
+CREATE MEMORY TABLE XTQX_XZQX_JSQX_T(ID BIGINT NOT NULL PRIMARY KEY,SFKY BOOLEAN NOT NULL,JSQXID BIGINT,XZMSID BIGINT NOT NULL,CONSTRAINT FK2932AD3F77354BDD FOREIGN KEY(JSQXID) REFERENCES XTQX_JSQX_T(ID),CONSTRAINT FK2932AD3F74C15744 FOREIGN KEY(XZMSID) REFERENCES XTQX_XZMS_T(ID))
+CREATE MEMORY TABLE XTQX_XZQX_JSQX_XZX_T(ID BIGINT NOT NULL PRIMARY KEY,XZQXID BIGINT,XZCSID BIGINT,XZNR VARCHAR(1024),CONSTRAINT FKC9EE93566C7A49C0 FOREIGN KEY(XZQXID) REFERENCES XTQX_XZQX_JSQX_T(ID),CONSTRAINT FKC9EE93567522DA07 FOREIGN KEY(XZCSID) REFERENCES XTQX_XZCS_T(ID))
+CREATE MEMORY TABLE XTQX_XZQX_JS_T(ID BIGINT NOT NULL PRIMARY KEY,SFKY BOOLEAN NOT NULL,JSID BIGINT,XZMSID BIGINT NOT NULL,CONSTRAINT FK15FF59860856CD5 FOREIGN KEY(JSID) REFERENCES XTQX_JS_T(ID),CONSTRAINT FK15FF59874C15744 FOREIGN KEY(XZMSID) REFERENCES XTQX_XZMS_T(ID))
+CREATE MEMORY TABLE XTQX_XZQX_JS_XZX_T(ID BIGINT NOT NULL PRIMARY KEY,XZQXID BIGINT,XZCSID BIGINT,XZNR VARCHAR(1024),CONSTRAINT FKBF1E072F7C7FF83D FOREIGN KEY(XZQXID) REFERENCES XTQX_XZQX_JS_T(ID),CONSTRAINT FKBF1E072F7522DA07 FOREIGN KEY(XZCSID) REFERENCES XTQX_XZCS_T(ID))
+CREATE MEMORY TABLE XTQX_XZQX_YHQX_T(ID BIGINT NOT NULL PRIMARY KEY,SFKY BOOLEAN NOT NULL,YHQXID BIGINT,XZMSID BIGINT NOT NULL,CONSTRAINT FK42305C0574C15744 FOREIGN KEY(XZMSID) REFERENCES XTQX_XZMS_T(ID))
+CREATE MEMORY TABLE XTQX_XZQX_YHQX_XZX_T(ID BIGINT NOT NULL PRIMARY KEY,XZQXID BIGINT,XZCSID BIGINT,XZNR VARCHAR(1024),CONSTRAINT FKBB4B6F1C7F61B895 FOREIGN KEY(XZQXID) REFERENCES XTQX_XZQX_YHQX_T(ID),CONSTRAINT FKBB4B6F1C7522DA07 FOREIGN KEY(XZCSID) REFERENCES XTQX_XZCS_T(ID))
+CREATE MEMORY TABLE XTQX_XZQX_YH_T(ID BIGINT NOT NULL PRIMARY KEY,SFKY BOOLEAN NOT NULL,YHID BIGINT,XZMSID BIGINT NOT NULL,CONSTRAINT FK1669DDE74C15744 FOREIGN KEY(XZMSID) REFERENCES XTQX_XZMS_T(ID))
+CREATE MEMORY TABLE XTQX_XZQX_YH_XZX_T(ID BIGINT NOT NULL PRIMARY KEY,XZQXID BIGINT,XZCSID BIGINT,XZNR VARCHAR(1024),CONSTRAINT FK8F6B1C75EFF995C8 FOREIGN KEY(XZQXID) REFERENCES XTQX_XZQX_YH_T(ID),CONSTRAINT FK8F6B1C757522DA07 FOREIGN KEY(XZCSID) REFERENCES XTQX_XZCS_T(ID))
+CREATE MEMORY TABLE XTQX_YHJS_T(YHID BIGINT NOT NULL,JSID BIGINT NOT NULL,PRIMARY KEY(JSID,YHID),CONSTRAINT FK332DEC0960856CD5 FOREIGN KEY(JSID) REFERENCES XTQX_JS_T(ID))
+CREATE MEMORY TABLE XTQX_YHLBPZ_T(ID BIGINT NOT NULL PRIMARY KEY,YHLBID BIGINT NOT NULL,ZDRS INTEGER NOT NULL,GQSJ INTEGER NOT NULL)
+CREATE MEMORY TABLE XTQX_YHLB_T(ID BIGINT NOT NULL PRIMARY KEY,LBMC VARCHAR(50),CONSTRAINT SYS_CT_92 UNIQUE(LBMC))
+CREATE MEMORY TABLE XTQX_YHMK_T(ID BIGINT NOT NULL PRIMARY KEY,YHID BIGINT,MKID BIGINT,SFKY BOOLEAN NOT NULL,CONSTRAINT FK332F2B1E924C28AC FOREIGN KEY(MKID) REFERENCES XTQX_MK_T(ID))
+CREATE MEMORY TABLE XTQX_YHQX_T(ID BIGINT NOT NULL PRIMARY KEY,YHID BIGINT,SFKY BOOLEAN NOT NULL,ZYID BIGINT)
+CREATE MEMORY TABLE XTQX_YH_LB_T(YHID BIGINT NOT NULL,LBID BIGINT NOT NULL,PRIMARY KEY(YHID,LBID),CONSTRAINT FK33B3E8DF63533C35 FOREIGN KEY(LBID) REFERENCES XTQX_YHLB_T(ID))
+CREATE MEMORY TABLE XTQX_YH_T(ID BIGINT NOT NULL PRIMARY KEY,YHMC VARCHAR(50) NOT NULL,YHXM VARCHAR(40) NOT NULL,MM VARCHAR(255) NOT NULL,ZT INTEGER NOT NULL,EMAIL VARCHAR(100) NOT NULL,CJRID BIGINT,CJSJ TIMESTAMP NOT NULL,XGSJ TIMESTAMP NOT NULL,BZ VARCHAR(500),MRYHLBID BIGINT NOT NULL,CONSTRAINT SYS_CT_102 UNIQUE(YHMC),CONSTRAINT FK65D05FC0EDA9A9 FOREIGN KEY(MRYHLBID) REFERENCES XTQX_YHLB_T(ID),CONSTRAINT FK65D05FC065F9EB4C FOREIGN KEY(CJRID) REFERENCES XTQX_YH_T(ID))
+CREATE MEMORY TABLE XTQX_ZXJL_T(ID BIGINT NOT NULL PRIMARY KEY,HHID VARCHAR(255) NOT NULL,YHMC VARCHAR(40) NOT NULL,YHXM VARCHAR(50) NOT NULL,IP VARCHAR(40) NOT NULL,DLSJ TIMESTAMP NOT NULL,TCSJ TIMESTAMP NOT NULL,ZHFWSJ TIMESTAMP NOT NULL,ZXSJ BIGINT NOT NULL,YHLBID BIGINT NOT NULL,BZ VARCHAR(100),CONSTRAINT FK35C4227137872BC4 FOREIGN KEY(YHLBID) REFERENCES XTQX_YHLB_T(ID))
+CREATE MEMORY TABLE XTQX_ZY_LB_T(ZYID BIGINT NOT NULL,LBID BIGINT NOT NULL,PRIMARY KEY(ZYID,LBID),CONSTRAINT FK859C86AF63533C35 FOREIGN KEY(LBID) REFERENCES XTQX_YHLB_T(ID))
+CREATE MEMORY TABLE XTQX_ZY_T(ID BIGINT NOT NULL PRIMARY KEY,ZYMC VARCHAR(50),ZYBT VARCHAR(100) NOT NULL,ZYJJ VARCHAR(100),SFKY BOOLEAN NOT NULL,CONSTRAINT SYS_CT_110 UNIQUE(ZYMC))
+CREATE MEMORY TABLE XTQX_ZY_XZMS_T(ZYID BIGINT NOT NULL,XZMSID BIGINT NOT NULL,PRIMARY KEY(ZYID,XZMSID),CONSTRAINT FKA659CBE110427763 FOREIGN KEY(ZYID) REFERENCES XTQX_ZY_T(ID),CONSTRAINT FKA659CBE174C15744 FOREIGN KEY(XZMSID) REFERENCES XTQX_XZMS_T(ID))
+CREATE MEMORY TABLE DUAL_SEQ_XTQX_JSMK_T(ZERO INTEGER)
+CREATE MEMORY TABLE DUAL_SEQ_XTQX_JSQX_T(ZERO INTEGER)
+CREATE MEMORY TABLE DUAL_SEQ_XTQX_JS_T(ZERO INTEGER)
+CREATE MEMORY TABLE DUAL_SEQ_XTQX_MKPZ_T(ZERO INTEGER)
+CREATE MEMORY TABLE DUAL_SEQ_XTQX_MK_T(ZERO INTEGER)
+CREATE MEMORY TABLE DUAL_SEQ_XTQX_XZCS_T(ZERO INTEGER)
+CREATE MEMORY TABLE DUAL_SEQ_XTQX_XZMS_T(ZERO INTEGER)
+CREATE MEMORY TABLE DUAL_SEQ_XTQX_XZQX_JSQX_T(ZERO INTEGER)
+CREATE MEMORY TABLE DUAL_SEQ_XTQX_XZQX_JSQX_XZX_T(ZERO INTEGER)
+CREATE MEMORY TABLE DUAL_SEQ_XTQX_XZQX_JS_T(ZERO INTEGER)
+CREATE MEMORY TABLE DUAL_SEQ_XTQX_XZQX_JS_XZX_T(ZERO INTEGER)
+CREATE MEMORY TABLE DUAL_SEQ_XTQX_XZQX_YHQX_T(ZERO INTEGER)
+CREATE MEMORY TABLE DUAL_SEQ_XTQX_XZQX_YHQX_XZX_T(ZERO INTEGER)
+CREATE MEMORY TABLE DUAL_SEQ_XTQX_XZQX_YH_T(ZERO INTEGER)
+CREATE MEMORY TABLE DUAL_SEQ_XTQX_XZQX_YH_XZX_T(ZERO INTEGER)
+CREATE MEMORY TABLE DUAL_SEQ_XTQX_YHLBPZ_T(ZERO INTEGER)
+CREATE MEMORY TABLE DUAL_SEQ_XTQX_YHLB_T(ZERO INTEGER)
+CREATE MEMORY TABLE DUAL_SEQ_XTQX_YHMK_T(ZERO INTEGER)
+CREATE MEMORY TABLE DUAL_SEQ_XTQX_YHQX_T(ZERO INTEGER)
+CREATE MEMORY TABLE DUAL_SEQ_XTQX_YH_T(ZERO INTEGER)
+CREATE MEMORY TABLE DUAL_SEQ_XTQX_ZXJL_T(ZERO INTEGER)
+CREATE MEMORY TABLE DUAL_SEQ_XTQX_ZY_T(ZERO INTEGER)
+ALTER TABLE XTQX_FJGL_JS_T ADD CONSTRAINT FKF104E19860856CD5 FOREIGN KEY(JSID) REFERENCES XTQX_JS_T(ID)
+ALTER TABLE XTQX_FJGL_JS_T ADD CONSTRAINT FKF104E198608D8070 FOREIGN KEY(YHID) REFERENCES XTQX_YH_T(ID)
+ALTER TABLE XTQX_FJGL_YH_T ADD CONSTRAINT FKF10B89DED9AF3108 FOREIGN KEY(SGLYHID) REFERENCES XTQX_YH_T(ID)
+ALTER TABLE XTQX_FJGL_YH_T ADD CONSTRAINT FKF10B89DE608D8070 FOREIGN KEY(YHID) REFERENCES XTQX_YH_T(ID)
+ALTER TABLE XTQX_JSMK_T ADD CONSTRAINT FK1A317C5860856CD5 FOREIGN KEY(JSID) REFERENCES XTQX_JS_T(ID)
+ALTER TABLE XTQX_JSMK_T ADD CONSTRAINT FK1A317C58924C28AC FOREIGN KEY(MKID) REFERENCES XTQX_MK_T(ID)
+ALTER TABLE XTQX_JSQX_T ADD CONSTRAINT FK1A337EA160856CD5 FOREIGN KEY(JSID) REFERENCES XTQX_JS_T(ID)
+ALTER TABLE XTQX_JSQX_T ADD CONSTRAINT FK1A337EA110427763 FOREIGN KEY(ZYID) REFERENCES XTQX_ZY_T(ID)
+ALTER TABLE XTQX_JS_T ADD CONSTRAINT FK65C9B77A65F9EB4C FOREIGN KEY(CJRID) REFERENCES XTQX_YH_T(ID)
+ALTER TABLE XTQX_JS_T ADD CONSTRAINT FK65C9B77A37872BC4 FOREIGN KEY(YHLBID) REFERENCES XTQX_YHLB_T(ID)
+ALTER TABLE XTQX_MKPZ_T ADD CONSTRAINT FK1EE0DF9937872BC4 FOREIGN KEY(YHLBID) REFERENCES XTQX_YHLB_T(ID)
+ALTER TABLE XTQX_MK_ZY_T ADD CONSTRAINT FKBE0E5F3910427763 FOREIGN KEY(ZYID) REFERENCES XTQX_ZY_T(ID)
+ALTER TABLE XTQX_XZMS_CS_T ADD CONSTRAINT FK253B9EE074C15744 FOREIGN KEY(XZMSID) REFERENCES XTQX_XZMS_T(ID)
+ALTER TABLE XTQX_XZQX_YHQX_T ADD CONSTRAINT FK42305C05CFFC7EEE FOREIGN KEY(YHQXID) REFERENCES XTQX_YHQX_T(ID)
+ALTER TABLE XTQX_XZQX_YH_T ADD CONSTRAINT FK1669DDE608D8070 FOREIGN KEY(YHID) REFERENCES XTQX_YH_T(ID)
+ALTER TABLE XTQX_YHJS_T ADD CONSTRAINT FK332DEC09608D8070 FOREIGN KEY(YHID) REFERENCES XTQX_YH_T(ID)
+ALTER TABLE XTQX_YHLBPZ_T ADD CONSTRAINT FK21D6804037872BC4 FOREIGN KEY(YHLBID) REFERENCES XTQX_YHLB_T(ID)
+ALTER TABLE XTQX_YHMK_T ADD CONSTRAINT FK332F2B1E608D8070 FOREIGN KEY(YHID) REFERENCES XTQX_YH_T(ID)
+ALTER TABLE XTQX_YHQX_T ADD CONSTRAINT FK33312D6710427763 FOREIGN KEY(ZYID) REFERENCES XTQX_ZY_T(ID)
+ALTER TABLE XTQX_YHQX_T ADD CONSTRAINT FK33312D67608D8070 FOREIGN KEY(YHID) REFERENCES XTQX_YH_T(ID)
+ALTER TABLE XTQX_YH_LB_T ADD CONSTRAINT FK33B3E8DF608D8070 FOREIGN KEY(YHID) REFERENCES XTQX_YH_T(ID)
+ALTER TABLE XTQX_ZY_LB_T ADD CONSTRAINT FK859C86AF10427763 FOREIGN KEY(ZYID) REFERENCES XTQX_ZY_T(ID)
+CREATE USER SA PASSWORD ""
+GRANT DBA TO SA
+SET WRITE_DELAY 10
+SET SCHEMA PUBLIC
+INSERT INTO XTQX_FJGL_JS_T VALUES(1,1)
+INSERT INTO XTQX_FJGL_JS_T VALUES(2,1)
+INSERT INTO XTQX_FJGL_YH_T VALUES(1,2)
+INSERT INTO XTQX_JSMK_T VALUES(1,1,1,TRUE)
+INSERT INTO XTQX_JSMK_T VALUES(2,1,2,TRUE)
+INSERT INTO XTQX_JSMK_T VALUES(3,1,3,TRUE)
+INSERT INTO XTQX_JSMK_T VALUES(4,1,4,TRUE)
+INSERT INTO XTQX_JSMK_T VALUES(5,1,5,TRUE)
+INSERT INTO XTQX_JSMK_T VALUES(6,1,6,TRUE)
+INSERT INTO XTQX_JSMK_T VALUES(7,1,7,TRUE)
+INSERT INTO XTQX_JSMK_T VALUES(8,1,8,TRUE)
+INSERT INTO XTQX_JSMK_T VALUES(9,1,9,TRUE)
+INSERT INTO XTQX_JSMK_T VALUES(10,1,10,TRUE)
+INSERT INTO XTQX_JSMK_T VALUES(11,1,11,TRUE)
+INSERT INTO XTQX_JSMK_T VALUES(12,1,12,TRUE)
+INSERT INTO XTQX_JSQX_T VALUES(1,1,TRUE,1)
+INSERT INTO XTQX_JSQX_T VALUES(2,1,TRUE,2)
+INSERT INTO XTQX_JSQX_T VALUES(3,1,TRUE,3)
+INSERT INTO XTQX_JSQX_T VALUES(4,1,TRUE,4)
+INSERT INTO XTQX_JSQX_T VALUES(5,1,TRUE,5)
+INSERT INTO XTQX_JSQX_T VALUES(6,1,TRUE,6)
+INSERT INTO XTQX_JSQX_T VALUES(7,1,TRUE,7)
+INSERT INTO XTQX_JSQX_T VALUES(8,1,TRUE,8)
+INSERT INTO XTQX_JSQX_T VALUES(9,1,TRUE,9)
+INSERT INTO XTQX_JSQX_T VALUES(10,1,TRUE,10)
+INSERT INTO XTQX_JSQX_T VALUES(11,1,TRUE,11)
+INSERT INTO XTQX_JSQX_T VALUES(12,1,TRUE,12)
+INSERT INTO XTQX_JSQX_T VALUES(13,1,TRUE,13)
+INSERT INTO XTQX_JSQX_T VALUES(14,1,TRUE,14)
+INSERT INTO XTQX_JSQX_T VALUES(15,1,TRUE,15)
+INSERT INTO XTQX_JS_T VALUES(1,'超级管理员','超级管理员',1,3,'2008-08-08 00:00:00.000000000','2008-08-19 00:08:23.978000000',TRUE)
+INSERT INTO XTQX_MKPZ_T VALUES(1,'管理员菜单配置',3)
+INSERT INTO XTQX_MKPZ_T VALUES(2,'教师菜单',1)
+INSERT INTO XTQX_MK_T VALUES(1,1,'06','系统管理','System',NULL,NULL,TRUE)
+INSERT INTO XTQX_MK_T VALUES(2,1,'0602','系统设置','Setting',NULL,NULL,TRUE)
+INSERT INTO XTQX_MK_T VALUES(3,1,'060201','主页','Home',NULL,'home.do?method=welcome',TRUE)
+INSERT INTO XTQX_MK_T VALUES(4,1,'0601','权限管理 ','Authority',NULL,NULL,TRUE)
+INSERT INTO XTQX_MK_T VALUES(5,1,'060101','用户管理','User',NULL,'user.do',TRUE)
+INSERT INTO XTQX_MK_T VALUES(6,1,'060102','角色管理','Role',NULL,'role.do',TRUE)
+INSERT INTO XTQX_MK_T VALUES(7,1,'060103','系统菜单','Menu',NULL,'menu.do',TRUE)
+INSERT INTO XTQX_MK_T VALUES(8,1,'060104','授权管理','Authority',NULL,'menuAuthority.do',TRUE)
+INSERT INTO XTQX_MK_T VALUES(9,1,'060105','在线记录','OnlineRecord',NULL,'onlineRecord.do',TRUE)
+INSERT INTO XTQX_MK_T VALUES(10,1,'060106','在线人数','OnlineUser',NULL,'onlineUser.do',TRUE)
+INSERT INTO XTQX_MK_T VALUES(11,1,'060107','系统资源','Rsource',NULL,'resource.do',TRUE)
+INSERT INTO XTQX_MK_T VALUES(12,1,'060108','Dashboard','Dashboard',NULL,'securityDashboard.do',TRUE)
+INSERT INTO XTQX_MK_ZY_T VALUES(5,2)
+INSERT INTO XTQX_MK_ZY_T VALUES(5,15)
+INSERT INTO XTQX_YHJS_T VALUES(1,1)
+INSERT INTO XTQX_YHJS_T VALUES(2,1)
+INSERT INTO XTQX_YHLBPZ_T VALUES(1,1,100,3000)
+INSERT INTO XTQX_YHLBPZ_T VALUES(2,2,100,3000)
+INSERT INTO XTQX_YHLBPZ_T VALUES(3,3,100,3000)
+INSERT INTO XTQX_YHLB_T VALUES(1,'学生')
+INSERT INTO XTQX_YHLB_T VALUES(2,'教师')
+INSERT INTO XTQX_YHLB_T VALUES(3,'管理员')
+INSERT INTO XTQX_YH_LB_T VALUES(1,3)
+INSERT INTO XTQX_YH_LB_T VALUES(2,3)
+INSERT INTO XTQX_YH_T VALUES(1,'admin','admin','c4ca4238a0b923820dcc509a6f75849b',1,'admin@ekingstar.com',NULL,'2008-08-08 00:00:00.000000000','2009-02-18 22:51:20.293000000','超级管理员',3)
+INSERT INTO XTQX_YH_T VALUES(2,'d','d','c81e728d9d4c2f636f067f89cc14862c',0,'2d@a.com',1,'2008-11-23 19:57:57.163000000','2009-02-18 22:52:17.336000000',NULL,3)
+INSERT INTO XTQX_ZXJL_T VALUES(1,'1bwvyrmikpx37','admin','admin','127.0.0.1','2009-02-11 21:59:39.596000000','2009-02-11 22:29:47.629000000','2009-02-11 21:59:43.263000000',1808033,3,NULL)
+INSERT INTO XTQX_ZXJL_T VALUES(2,'7melqgsuqppo','admin','admin','127.0.0.1','2009-04-11 15:46:37.251000000','2009-04-11 15:53:18.647000000','2009-04-11 15:53:15.371000000',401396,3,NULL)
+INSERT INTO XTQX_ZXJL_T VALUES(3,'setflfq2zxqh','admin','admin','127.0.0.1','2009-04-11 15:53:25.658000000','2009-04-11 15:54:15.303000000','2009-04-11 15:54:13.412000000',49645,3,NULL)
+INSERT INTO XTQX_ZXJL_T VALUES(4,'1d0w3ob2bl2j2','admin','admin','127.0.0.1','2009-04-22 21:24:39.012000000','2009-04-22 21:24:41.604000000','2009-04-22 21:24:39.499000000',2592,3,NULL)
+INSERT INTO XTQX_ZXJL_T VALUES(5,'qb3j0gk9q2zn','admin','admin','127.0.0.1','2009-04-22 21:24:50.924000000','2009-04-22 21:24:57.774000000','2009-04-22 21:24:56.205000000',6850,3,NULL)
+INSERT INTO XTQX_ZY_LB_T VALUES(2,3)
+INSERT INTO XTQX_ZY_LB_T VALUES(15,3)
+INSERT INTO XTQX_ZY_T VALUES(1,'home','系统主界面',NULL,TRUE)
+INSERT INTO XTQX_ZY_T VALUES(2,'user','用户管理',NULL,TRUE)
+INSERT INTO XTQX_ZY_T VALUES(3,'role','角色管理',NULL,TRUE)
+INSERT INTO XTQX_ZY_T VALUES(4,'menu','系统菜单',NULL,TRUE)
+INSERT INTO XTQX_ZY_T VALUES(5,'menuAuthority','授权管理',NULL,TRUE)
+INSERT INTO XTQX_ZY_T VALUES(6,'onlineRecord','在线记录',NULL,TRUE)
+INSERT INTO XTQX_ZY_T VALUES(7,'onlineUser','在线人数',NULL,TRUE)
+INSERT INTO XTQX_ZY_T VALUES(8,'resource','系统资源',NULL,TRUE)
+INSERT INTO XTQX_ZY_T VALUES(9,'restrictionPattern','数据限制模式',NULL,TRUE)
+INSERT INTO XTQX_ZY_T VALUES(10,'patternParam','数据限制参数',NULL,TRUE)
+INSERT INTO XTQX_ZY_T VALUES(11,'menuProfile','菜单配置',NULL,TRUE)
+INSERT INTO XTQX_ZY_T VALUES(12,'management','用户二级管理',NULL,TRUE)
+INSERT INTO XTQX_ZY_T VALUES(13,'restriction','数据权限配置',NULL,TRUE)
+INSERT INTO XTQX_ZY_T VALUES(14,'securityDashboard','dashboard',NULL,TRUE)
+INSERT INTO XTQX_ZY_T VALUES(15,'userDashboard','用户控制台',NULL,TRUE)
+INSERT INTO DUAL_SEQ_XTQX_JSMK_T VALUES(0)
+INSERT INTO DUAL_SEQ_XTQX_JSQX_T VALUES(0)
+INSERT INTO DUAL_SEQ_XTQX_JS_T VALUES(0)
+INSERT INTO DUAL_SEQ_XTQX_MKPZ_T VALUES(0)
+INSERT INTO DUAL_SEQ_XTQX_MK_T VALUES(0)
+INSERT INTO DUAL_SEQ_XTQX_XZCS_T VALUES(0)
+INSERT INTO DUAL_SEQ_XTQX_XZMS_T VALUES(0)
+INSERT INTO DUAL_SEQ_XTQX_XZQX_JSQX_T VALUES(0)
+INSERT INTO DUAL_SEQ_XTQX_XZQX_JSQX_XZX_T VALUES(0)
+INSERT INTO DUAL_SEQ_XTQX_XZQX_JS_T VALUES(0)
+INSERT INTO DUAL_SEQ_XTQX_XZQX_JS_XZX_T VALUES(0)
+INSERT INTO DUAL_SEQ_XTQX_XZQX_YHQX_T VALUES(0)
+INSERT INTO DUAL_SEQ_XTQX_XZQX_YHQX_XZX_T VALUES(0)
+INSERT INTO DUAL_SEQ_XTQX_XZQX_YH_T VALUES(0)
+INSERT INTO DUAL_SEQ_XTQX_XZQX_YH_XZX_T VALUES(0)
+INSERT INTO DUAL_SEQ_XTQX_YHLBPZ_T VALUES(0)
+INSERT INTO DUAL_SEQ_XTQX_YHLB_T VALUES(0)
+INSERT INTO DUAL_SEQ_XTQX_YHMK_T VALUES(0)
+INSERT INTO DUAL_SEQ_XTQX_YHQX_T VALUES(0)
+INSERT INTO DUAL_SEQ_XTQX_YH_T VALUES(0)
+INSERT INTO DUAL_SEQ_XTQX_ZXJL_T VALUES(0)
+INSERT INTO DUAL_SEQ_XTQX_ZY_T VALUES(0)
+
+
+-- 插入学生
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (3,'student3','student3',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (4,'student4','student4',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (5,'student5','student5',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (6,'student6','student6',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (7,'student7','student7',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (8,'student8','student8',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (9,'student9','student9',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (10,'student10','student10',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (11,'student11','student11',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (12,'student12','student12',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (13,'student13','student13',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (14,'student14','student14',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (15,'student15','student15',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (16,'student16','student16',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (17,'student17','student17',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (18,'student18','student18',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (19,'student19','student19',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (20,'student20','student20',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (21,'student21','student21',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (22,'student22','student22',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (23,'student23','student23',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (24,'student24','student24',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (25,'student25','student25',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (26,'student26','student26',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (27,'student27','student27',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (28,'student28','student28',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (29,'student29','student29',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (30,'student30','student30',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (31,'student31','student31',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (32,'student32','student32',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (33,'student33','student33',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (34,'student34','student34',1,1,1);
+insert into xs_t (id,xh,xm,sfzj,sfzx,sfxls) values (35,'student35','student35',1,1,1);
+
+
+-- 插入学生账户
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (5,'student3','student3','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (6,'student4','student4','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (7,'student5','student5','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (8,'student6','student6','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (9,'student7','student7','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (10,'student8','student8','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (11,'student9','student9','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (12,'student10','student10','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (13,'student11','student11','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (14,'student12','student12','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (15,'student13','student13','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (16,'student14','student14','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (17,'student15','student15','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (18,'student16','student16','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (19,'student17','student17','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (20,'student18','student18','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (21,'student19','student19','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (22,'student20','student20','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (23,'student21','student21','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (24,'student22','student22','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (25,'student23','student23','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (26,'student24','student24','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (27,'student25','student25','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (28,'student26','student26','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (29,'student27','student27','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (30,'student28','student28','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (31,'student29','student29','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (32,'student30','student30','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (33,'student31','student31','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (34,'student32','student32','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (35,'student33','student33','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (36,'student34','student34','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+insert into sys_users(id,name,fullname,password,status,mail,admin,creator_id,created_at,updated_at,default_category_id) values (37,'student35','student35','c4ca4238a0b923820dcc509a6f75849b',1,'student3@shfc.edu.cn',0,1,sysdate,sysdate,1);
+
+-- 授予学生身份
+insert into sys_users_categories(user_id,category_id) values (5,1);
+insert into sys_users_categories(user_id,category_id) values (6,1);
+insert into sys_users_categories(user_id,category_id) values (7,1);
+insert into sys_users_categories(user_id,category_id) values (8,1);
+insert into sys_users_categories(user_id,category_id) values (9,1);
+insert into sys_users_categories(user_id,category_id) values (10,1);
+insert into sys_users_categories(user_id,category_id) values (11,1);
+insert into sys_users_categories(user_id,category_id) values (12,1);
+insert into sys_users_categories(user_id,category_id) values (13,1);
+insert into sys_users_categories(user_id,category_id) values (14,1);
+insert into sys_users_categories(user_id,category_id) values (15,1);
+insert into sys_users_categories(user_id,category_id) values (16,1);
+insert into sys_users_categories(user_id,category_id) values (17,1);
+insert into sys_users_categories(user_id,category_id) values (18,1);
+insert into sys_users_categories(user_id,category_id) values (19,1);
+insert into sys_users_categories(user_id,category_id) values (20,1);
+insert into sys_users_categories(user_id,category_id) values (21,1);
+insert into sys_users_categories(user_id,category_id) values (22,1);
+insert into sys_users_categories(user_id,category_id) values (23,1);
+insert into sys_users_categories(user_id,category_id) values (24,1);
+insert into sys_users_categories(user_id,category_id) values (25,1);
+insert into sys_users_categories(user_id,category_id) values (26,1);
+insert into sys_users_categories(user_id,category_id) values (27,1);
+insert into sys_users_categories(user_id,category_id) values (28,1);
+insert into sys_users_categories(user_id,category_id) values (29,1);
+insert into sys_users_categories(user_id,category_id) values (30,1);
+insert into sys_users_categories(user_id,category_id) values (31,1);
+insert into sys_users_categories(user_id,category_id) values (32,1);
+insert into sys_users_categories(user_id,category_id) values (33,1);
+insert into sys_users_categories(user_id,category_id) values (34,1);
+insert into sys_users_categories(user_id,category_id) values (35,1);
+insert into sys_users_categories(user_id,category_id) values (36,1);
+insert into sys_users_categories(user_id,category_id) values (37,1);

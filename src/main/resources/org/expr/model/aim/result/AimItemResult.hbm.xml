@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<!-- 理财目标项-->
+<hibernate-mapping package="org.expr.model.aim.result">
+	<class name="AimItemResult">
+		<id name="id" unsaved-value="null">
+			<generator
+				class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator" />
+		</id>
+		<many-to-one name="result" />
+		<property name="content" />
+		<many-to-one name="aimtype" />
+	</class>
+</hibernate-mapping>

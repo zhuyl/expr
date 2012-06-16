@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- 教育规划-->
+<hibernate-mapping package="org.expr.model.plan.answer">
+	<class name="EducationPlanAnswer">
+		<id name="id" unsaved-value="null">
+			<generator
+				class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator" />
+		</id>
+		<set name="members" inverse="true" cascade="all,delete-orphan">
+			<key column="answer_id" />
+			<one-to-many entity-name="org.expr.model.plan.answer.MemberEducationPlanAnswer" />
+		</set>
+		<property name="remark" />
+		<many-to-one name="caze" not-null="true" unique="true" />
+	</class>
+</hibernate-mapping>

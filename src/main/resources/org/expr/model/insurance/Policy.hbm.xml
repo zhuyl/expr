@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- -->
+<hibernate-mapping package="org.expr.model.insurance" >
+	<class name="Policy" >
+		<id name="id"  unsaved-value="null">
+			<generator class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator"/>
+		</id>
+		<property name="name" />
+		<property name="age" />
+		<property name="value" />
+		<many-to-one name="gender" />
+		<many-to-one name="time" />		
+		<many-to-one name="paytime" />	
+		<many-to-one name="paytype" />	
+		<many-to-one name="product" />	
+		<many-to-one name="career" />					
+	</class>
+</hibernate-mapping>

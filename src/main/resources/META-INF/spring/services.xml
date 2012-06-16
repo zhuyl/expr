@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<description>general spring beans</description>
+
+	<bean id="defaultRateCalculator" class="org.expr.service.insurance.impl.DefaultRateCalculator"
+		autowire="byName">
+		<property name="calculators">
+			<map>
+				<entry key="paytime" value-ref="paytimeRateCalculator"/>
+				<entry key="careergrade" value-ref="careerRateCalculator"/>				
+			</map>
+		</property>
+	</bean>
+	
+	<bean id="paytimeRateCalculator" class="org.expr.service.insurance.impl.PaytimeRateCalculator"
+		autowire="byName">
+	</bean>
+	
+	<bean id="careerRateCalculator" class="org.expr.service.insurance.impl.CareerRateCalculator"
+		autowire="byName">
+	</bean>
+</beans>
+

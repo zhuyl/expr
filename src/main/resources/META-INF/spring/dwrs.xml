@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:dwr="http://www.directwebremoting.org/schema/spring-dwr"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+			http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.directwebremoting.org/schema/spring-dwr			
+			http://www.directwebremoting.org/schema/spring-dwr-2.0.xsd">
+			
+	<bean id="insuranceDwrService"
+		class="org.expr.web.dwr.InsuranceDwrService"
+		autowire="byName">
+	</bean>
+    <bean id="financeDwrService"
+		class="org.expr.web.dwr.FinanceDwrService"
+		autowire="byName">
+	</bean>
+	<bean id="careerDwrService"
+		class="org.expr.web.dwr.CareerDwrService"
+		autowire="byName">
+	</bean>
+	<bean id="insuranceRateDwrService"
+		class="org.expr.web.dwr.InsuranceRateDwrService"
+		autowire="byName">
+	</bean>
+	<dwr:configuration>
+		<dwr:create type="spring" javascript="insuranceDwrService">
+			<dwr:param name="beanName" value="insuranceDwrService" />
+			<dwr:include method="getInsuranceTypes" />
+			<dwr:include method="getInsuranctPayTypes" />
+			<dwr:include method="getInsuranctPayTimes" />
+			<dwr:include method="getInsuranctTimes" />			
+		</dwr:create>
+		<dwr:create type="spring" javascript="financeDwrService">
+			<dwr:param name="beanName" value="financeDwrService" />
+			<dwr:include method="getFinanceTypes" />	
+			<dwr:include method="getFinance" />			
+		</dwr:create>
+		<dwr:create type="spring" javascript="careerDwrService">
+			<dwr:param name="beanName" value="careerDwrService" />
+			<dwr:include method="getChildren" />
+		</dwr:create>
+		<dwr:create type="spring" javascript="insuranceRateDwrService">
+			<dwr:param name="beanName" value="insuranceRateDwrService" />
+			<dwr:include method="calc" />
+			<dwr:include method="Expcalc" />
+		</dwr:create>
+		<dwr:convert type="bean" class="org.expr.model.finance.Finance"/>
+		<dwr:convert type="bean" class="org.expr.model.basecode.RiskGrade"/>
+		<dwr:convert type="bean" class="org.expr.model.basecode.FinanceType"/>
+		<dwr:convert type="bean" class="org.expr.model.basecode.RatePayPeriod"/>
+		<dwr:convert type="bean" class="org.expr.model.basecode.Mobility"/>
+	</dwr:configuration>
+</beans>

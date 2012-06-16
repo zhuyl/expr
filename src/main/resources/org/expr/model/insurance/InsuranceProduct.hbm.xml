@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- -->
+<hibernate-mapping package="org.expr.model.insurance" >
+	<class name="InsuranceProduct" >
+		<id name="id"  unsaved-value="null">
+			<generator class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator"/>
+		</id>
+		<property name="seqNo" />
+		<property name="name" />
+		<property name="corporation" />
+		<many-to-one name="type" />
+		<many-to-one name="registry" />
+		<property name="detail" />
+	<!--  	<property name="scope" />-->
+		<set name="paytypes">
+		   <key column="product_id"/>
+			<many-to-many column="paytype_id" class="org.expr.model.basecode.InsurancePayType" />
+		</set>
+		<set name="paytimes">
+		   <key column="product_id"/>
+			<many-to-many column="paytime_id" class="org.expr.model.basecode.InsurancePayTime" />
+		</set>
+		<set name="times">
+		   <key column="product_id"/>
+			<many-to-many column="time_id" class="org.expr.model.basecode.InsuranceTime" />
+		</set>
+		<many-to-one name="careerprofile" />
+		<many-to-one name="masterProduct" />
+		<property name="additional" />
+		<set name="additionalProducts">
+		   <key column="master_product_id"/>
+			<many-to-many column="additional_product_id" class="InsuranceProduct" />
+		</set>
+	</class>
+</hibernate-mapping>

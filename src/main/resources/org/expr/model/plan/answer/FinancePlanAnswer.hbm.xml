@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<!-- 金融理财规划表 -->
+<hibernate-mapping package="org.expr.model.plan.answer">
+	<class name="FinancePlanAnswer">
+		<id name="id" unsaved-value="null">
+			<generator
+				class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator" />
+		</id>
+		<many-to-one name="answer" not-null="true" />
+		<many-to-one name="riskgrade" />
+		<many-to-one name="financetype" />	
+		<many-to-one name="ratepayperiod" />
+		<property name="rate" />	
+		<many-to-one name="mobility" />				
+		<property name="amount" />
+		<property name="append" />
+		<property name="startYear" />
+		<property name="endYear" />
+		<property name="finances" />
+	</class>
+</hibernate-mapping>

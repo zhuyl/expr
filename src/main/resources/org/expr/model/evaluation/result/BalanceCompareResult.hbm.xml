@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+	<!-- 单个产品收益分析表 -->
+<hibernate-mapping package="org.expr.model.evaluation.result">
+	<class name="BalanceCompareResult">
+		<id name="id" unsaved-value="null">
+			<generator
+				class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator" />
+		</id>
+		<property name="remark" />
+		<property name="score" />
+		<many-to-one name="experiment" />
+		<many-to-one name="student" />	
+		<property name="year" />
+	</class>
+</hibernate-mapping>

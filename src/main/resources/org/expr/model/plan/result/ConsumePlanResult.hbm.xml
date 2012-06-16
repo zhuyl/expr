@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 家庭支出规划表 -->
+<hibernate-mapping package="org.expr.model.plan.result">
+	<class name="ConsumePlanResult">
+		<id name="id" unsaved-value="null">
+			<generator
+				class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator" />
+		</id>
+		<map name="amounts" cascade="all,delete-orphan">
+			<key column="consume_plan_result_id" />
+			<map-key type="integer" column="year" />
+			<element type="double" column="amount" />
+		</map>
+		<property name="remark" />
+		<property name="score" />
+		<many-to-one name="experiment" />
+		<many-to-one name="student" />	
+	</class>
+</hibernate-mapping>

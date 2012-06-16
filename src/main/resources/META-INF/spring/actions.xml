@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <description>
+        general spring beans
+    </description>
+    
+    <bean name="caze" class="org.expr.web.action.CazeAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.Caze"/>
+    </bean>
+    <bean name="myCaze" class="org.expr.web.action.MyCazeAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.Caze"/>
+    </bean>
+    <bean name="studentCaze" class="org.expr.web.action.StudentCazeAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.Caze"/>
+    </bean>
+    <bean name="financeTool" class="org.expr.web.action.FinanceToolAction" autowire="byName">
+    </bean>
+    <bean name="financeProduct" class="org.expr.web.action.FinanceProductAction" autowire="byName">
+    </bean>
+    <bean name="experiment" class="org.expr.web.action.ExperimentAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.lesson.Experiment"/>
+    </bean>
+    
+    <bean name="experimentStudy" class="org.expr.web.action.ExperimentStudyAction" autowire="byName">
+    </bean>
+
+    <bean name="experimentCheck" class="org.expr.web.action.ExperimentCheckAction" autowire="byName">
+    </bean>
+    
+    <bean name="stdFamilyAnalysis" class="org.expr.web.action.experimentStudy.StdFamilyAnalysisAction" autowire="byName">
+    </bean>
+    
+    <bean name="lesson" class="org.expr.web.action.LessonAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.lesson.Lesson"/>
+    </bean>
+    
+    <bean name="teacherLesson" class="org.expr.web.action.TeacherLessonAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.lesson.Lesson"/>
+    </bean>
+    
+    <bean name="payTimeRate" class="org.expr.web.action.insurance.PayTimeRateAction" autowire="byName">
+        <property name="rateCalculator" ref="defaultRateCalculator"/>
+        <property name="entityName" value="org.expr.model.insurance.PayTimeRate"/>
+    </bean>
+    
+    <bean name="careerRate" class="org.expr.web.action.insurance.CareerRateAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.insurance.CareerRate"/>
+    </bean>
+    
+    <bean name="career" class="org.expr.web.action.insurance.CareerAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.insurance.Career"/>
+    </bean>
+    
+    <bean name="careerProfile" class="org.expr.web.action.insurance.CareerProfileAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.insurance.CareerProfile"/>
+    </bean>
+    
+    <bean name="insurance" class="org.expr.web.action.InsuranceAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.insurance.InsuranceProduct"/>
+    </bean>
+    <bean name="finance" class="org.expr.web.action.FinanceAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.finance.Finance"/>
+    </bean>
+    <!-- 案例答案 -->
+    <bean name="familyAnalysis" class="org.expr.web.action.analysis.answer.FamilyAnalysisAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.analysis.answer.FamilyMemberAnswer"/>
+    </bean>
+    
+    <bean name="financeAssetAnalysis" class="org.expr.web.action.analysis.answer.FinanceAssetAnalysisAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.analysis.answer.FinanceAssetAnswer"/>
+    </bean>
+    
+    <bean name="insuranceAnalysis" class="org.expr.web.action.analysis.answer.InsuranceAnalysisAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.analysis.answer.InsurancePolicyAnswer"/>
+    </bean>
+    
+
+    
+    <bean name="answerDashboard" class="org.expr.web.action.analysis.answer.AnswerDashboardAction" autowire="byName">
+    </bean>
+    
+    <bean name="balanceSheet" class="org.expr.web.action.analysis.answer.BalanceSheetAction" autowire="byName">
+    </bean>
+    
+    <bean name="incomeExpense" class="org.expr.web.action.analysis.answer.IncomeExpenseAction" autowire="byName">
+    </bean>
+    
+    <bean name="riskToleranceAnalysis" class="org.expr.web.action.analysis.answer.RiskToleranceAnalysisAction" autowire="byName">
+    </bean>
+    
+    <bean name="analysisSummary" class="org.expr.web.action.analysis.answer.AnalysisSummaryAction" autowire="byName">
+    	<property name="entityName" value="org.expr.model.analysis.answer.AnalysisSummaryAnswer"/>
+    </bean>
+
+    
+
+    <!-- 学生做答案 -->
+    <bean name="resultDashboard" class="org.expr.web.action.analysis.result.ResultDashboardAction" autowire="byName">
+    </bean>
+    <bean name="result/familyAnalysis" class="org.expr.web.action.analysis.result.FamilyAnalysisAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.analysis.result.FamilyMemberResult"/>
+    </bean>
+    <bean name="result/balanceSheet" class="org.expr.web.action.analysis.result.BalanceSheetAction" autowire="byName">
+    </bean>  
+    <bean name="result/incomeExpense" class="org.expr.web.action.analysis.result.IncomeExpenseAction" autowire="byName">
+    </bean>    
+     <bean name="result/insuranceAnalysis" class="org.expr.web.action.analysis.result.InsuranceAnalysisAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.analysis.result.InsurancePolicyResult"/>
+    </bean>
+     <bean name="result/financeAssetAnalysis" class="org.expr.web.action.analysis.result.FinanceAssetAnalysisAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.analysis.result.FinanceAssetResult"/>
+    </bean>
+    <bean name="result/riskToleranceAnalysis" class="org.expr.web.action.analysis.result.RiskToleranceAnalysisAction" autowire="byName">
+    </bean>     
+    <bean name="result/analysisSummary" class="org.expr.web.action.analysis.result.AnalysisSummaryAction" autowire="byName">
+    	<property name="entityName" value="org.expr.model.analysis.result.AnalysisSummaryResult"/>
+    </bean>
+     
+     <bean name="result/aimAnalysis" class="org.expr.web.action.aim.result.AimAnalysisAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.aim.result.AimItemResult"/>
+    </bean>  
+    
+     
+    <bean name="result/cashPlan" class="org.expr.web.action.plan.result.CashPlanAction" autowire="byName">
+    </bean>
+    <bean name="result/bonusPlan" class="org.expr.web.action.plan.result.BonusPlanAction" autowire="byName">
+    </bean>
+     <bean name="result/otherIncomePlan" class="org.expr.web.action.plan.result.OtherIncomePlanAction" autowire="byName">
+    </bean>
+    <bean name="result/consumePlan" class="org.expr.web.action.plan.result.ConsumePlanAction" autowire="byName">
+    </bean>
+    <bean name="result/educationPlan" class="org.expr.web.action.plan.result.EducationPlanAction" autowire="byName">
+    </bean>
+    <bean name="result/medicalPlan" class="org.expr.web.action.plan.result.MedicalPlanAction" autowire="byName">
+    </bean>                 
+    <bean name="result/tripPlan" class="org.expr.web.action.plan.result.TripPlanAction" autowire="byName">
+    </bean> 
+    <bean name="result/carPlan" class="org.expr.web.action.plan.result.CarPlanAction" autowire="byName">
+    </bean>
+    <bean name="result/estateLoanPlan" class="org.expr.web.action.plan.result.EstateLoanPlanAction" autowire="byName">
+    </bean>    
+    <bean name="result/otherExpensePlan" class="org.expr.web.action.plan.result.OtherExpensePlanAction" autowire="byName">
+    </bean> 
+    <bean name="result/insurancePlan" class="org.expr.web.action.plan.result.InsurancePlanAction" autowire="byName">
+    </bean>
+     <bean name="result/financeAssetPlan" class="org.expr.web.action.plan.result.FinanceAssetPlanAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.plan.result.FinancePlanResult"/>
+    </bean> 
+    <bean name="result/planSummary" class="org.expr.web.action.plan.result.PlanSummaryAction" autowire="byName">
+    	<property name="entityName" value="org.expr.model.plan.result.PlanSummaryResult"/>
+    </bean>    
+     <bean name="result/changeAnalysis" class="org.expr.web.action.analysis.result.ChangeAnalysisAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.analysis.result.ChangeResult"/>
+    </bean> 
+     <bean name="result/benefitAnalysis" class="org.expr.web.action.evaluation.result.BenefitAnalysisAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.evaluation.result.BenefitItemResult"/>
+    </bean> 
+     <bean name="result/riskAnalysis" class="org.expr.web.action.evaluation.result.RiskAnalysisAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.evaluation.result.RiskItemResult"/>
+    </bean> 
+    <bean name="result/balanceCompare" class="org.expr.web.action.evaluation.result.BalanceCompareAction" autowire="byName">
+    </bean>
+     <bean name="result/financeCompare" class="org.expr.web.action.evaluation.result.FinanceCompareAction" autowire="byName">
+    </bean>
+     <bean name="result/insuranceCompare" class="org.expr.web.action.evaluation.result.InsuranceCompareAction" autowire="byName">
+    </bean>    
+      
+    <!-- 问卷管理 -->
+    <bean name="questionnaire" class="org.expr.web.action.questionnaire.QuestionnaireAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.analysis.Questionnaire"/>
+    </bean>
+    <bean name="question" class="org.expr.web.action.questionnaire.QuestionAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.analysis.Question"/>
+    </bean>
+    <bean name="option" class="org.expr.web.action.questionnaire.OptionAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.analysis.Option"/>
+    </bean>
+    <bean name="scoreRank" class="org.expr.web.action.questionnaire.ScoreRankAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.analysis.ScoreRank"/>
+    </bean>
+    
+    <!-- 评分标准管理 -->
+    <bean name="assessment" class="org.expr.web.action.assessment.AssessmentAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.assessment.Assessment"/>
+    </bean>
+    <bean name="assessItem" class="org.expr.web.action.assessment.AssessItemAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.assessment.AssessItem"/>
+    </bean>
+    
+    
+    <!-- 课程公告 -->
+    <bean name="lessonNotice" class="org.expr.web.action.LessonNoticeAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.lessonNotice.LessonNotice"/>
+    </bean>
+    
+    <!-- 课程消息 -->
+    <bean name="lessonMessage" class="org.expr.web.action.LessonMessageAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.lessonMessage.MessageReceiver"/>
+    </bean>
+    
+    <!-- 学习记录 -->
+    <bean name="studyLog" class="org.expr.web.action.StudyLogAction" autowire="byName">
+    </bean>
+    
+    <!-- 规划 -->
+    <bean name="insurancePlan" class="org.expr.web.action.plan.answer.InsurancePlanAction" autowire="byName">
+    </bean>
+    <bean name="cashPlan" class="org.expr.web.action.plan.answer.CashPlanAction" autowire="byName">
+    </bean>
+    <bean name="bonusPlan" class="org.expr.web.action.plan.answer.BonusPlanAction" autowire="byName">
+    </bean>
+    <bean name="consumePlan" class="org.expr.web.action.plan.answer.ConsumePlanAction" autowire="byName">
+    </bean>
+    <bean name="educationPlan" class="org.expr.web.action.plan.answer.EducationPlanAction" autowire="byName">
+    </bean>
+    <bean name="medicalPlan" class="org.expr.web.action.plan.answer.MedicalPlanAction" autowire="byName">
+    </bean>
+    <bean name="tripPlan" class="org.expr.web.action.plan.answer.TripPlanAction" autowire="byName">
+    </bean>
+    <bean name="investmentPlan" class="org.expr.web.action.plan.answer.InvestmentPlanAction" autowire="byName">
+    </bean>
+    <bean name="financeAssetPlan" class="org.expr.web.action.plan.answer.FinanceAssetPlanAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.plan.answer.FinancePlanAnswer"/>
+    </bean>
+    <bean name="carPlan" class="org.expr.web.action.plan.answer.CarPlanAction" autowire="byName">
+    </bean>
+    <bean name="estateLoanPlan" class="org.expr.web.action.plan.answer.EstateLoanPlanAction" autowire="byName">
+    </bean>
+    <bean name="otherIncomePlan" class="org.expr.web.action.plan.answer.OtherIncomePlanAction" autowire="byName">
+    </bean>
+    <bean name="otherExpensePlan" class="org.expr.web.action.plan.answer.OtherExpensePlanAction" autowire="byName">
+    </bean> 
+     <bean name="planSummary" class="org.expr.web.action.plan.answer.PlanSummaryAction" autowire="byName">
+    	<property name="entityName" value="org.expr.model.plan.answer.PlanSummaryAnswer"/>
+    </bean>     
+    <!--目标分析  -->
+    <bean name="aimAnalysis" class="org.expr.web.action.aim.answer.AimAnalysisAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.aim.answer.AimItemAnswer"/>
+    </bean>
+    
+    <!--动态平衡分析  -->
+    <bean name="changeAnalysis" class="org.expr.web.action.analysis.answer.ChangeAnalysisAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.analysis.answer.ChangeAnswer"/>
+    </bean>
+
+    
+    <!--理财规划评估 -->
+    <bean name="benefitAnalysis" class="org.expr.web.action.evaluation.answer.BenefitAnalysisAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.evaluation.answer.BenefitItemAnswer"/>
+    </bean>
+    <bean name="riskAnalysis" class="org.expr.web.action.evaluation.answer.RiskAnalysisAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.evaluation.answer.RiskItemAnswer"/>
+    </bean>
+    
+    <bean name="analysisChartsStat" class="org.expr.web.action.evaluation.answer.AnalysisChartsStatAction" autowire="byName">
+    </bean>
+    <bean name="balanceCompare" class="org.expr.web.action.evaluation.answer.BalanceCompareAction" autowire="byName">
+    </bean>
+     <bean name="financeCompare" class="org.expr.web.action.evaluation.answer.FinanceCompareAction" autowire="byName">
+    </bean>
+     <bean name="insuranceCompare" class="org.expr.web.action.evaluation.answer.InsuranceCompareAction" autowire="byName">
+    </bean>
+       
+    <!--客户风险承受态度分析 -->
+    <bean name="riskAttitudeAnalysis" class="org.expr.web.action.RiskAttitudeAnalysisAction" autowire="byName">
+    </bean>
+	
+	<bean name="exprStudent" class="org.expr.web.action.StudentAction" autowire="byName">
+        <property name="entityName" value="com.ekingstar.eams.student.Student"/>
+    </bean>
+	<bean name="exprTeacher" class="org.expr.web.action.TeacherAction" autowire="byName">
+        <property name="entityName" value="com.ekingstar.eams.teacher.Teacher"/>
+    </bean>
+    
+    <!-- 试题库 -->
+    <bean name="examQuestion" class="org.expr.web.action.exam.ExamQuestionAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.exam.ExamQuestion"/>
+    </bean>
+    <bean name="examItem" class="org.expr.web.action.exam.ExamItemAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.exam.ExamItem"/>
+    </bean>
+    <bean name="examOption" class="org.expr.web.action.exam.ExamOptionAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.exam.ExamOption"/>
+    </bean>
+    <bean name="examTeacher" class="org.expr.web.action.exam.ExamTeacherAction" autowire="byName">
+        <property name="entityName" value="org.expr.model.exam.ExamPaper"/>
+    </bean>
+    <bean name="examStudent" class="org.expr.web.action.exam.ExamStudentAction" autowire="byName">
+    </bean>
+</beans>
+

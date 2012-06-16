@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 学生作答结果表 -->
+<hibernate-mapping package="org.expr.model.exam.result" >
+	<class name="ExamResult" >
+		<id name="id"  unsaved-value="null">
+			<generator class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator"/>
+		</id>   
+
+		<property name="mark" />
+		<property name="beginAt" />
+		<property name="endAt" />	
+						
+		<many-to-one name="student" />
+		<many-to-one name="paper" />	
+
+		<set name="questionResults">
+		   <key column="itemResult_id"/>
+		   <one-to-many class="ExamQuestionResult" />
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!--学习记录-->
+<hibernate-mapping package="org.expr.model.lesson" >
+	<class name="StudyLog" >
+		<id name="id"  unsaved-value="null">
+			<generator class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator"/>
+		</id>
+		<many-to-one name="experiment" not-null="true"/>
+		<many-to-one name="std" not-null="true"/>
+		<property name="startAt"  not-null="true"/>
+		<property name="finishAt" not-null="true"/>
+		<property name="ip" not-null="true"/>
+		<property name="time" not-null="true"/>
+	</class>
+</hibernate-mapping>

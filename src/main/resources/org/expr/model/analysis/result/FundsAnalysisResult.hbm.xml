@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<!-- 资产负债表 -->
+<hibernate-mapping package="org.expr.model.analysis.result">
+	<class name="FundsAnalysisResult">
+		<id name="id" unsaved-value="null">
+			<generator
+				class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator" />
+		</id>
+		<property name="remark" />
+		<property name="score" />
+		<many-to-one name="experiment" />
+		<many-to-one name="student" />
+		<component name="form">
+			<property name="totalAssets" />
+			<property name="totalLiabilities" />
+			<property name="totalNet" />
+			<set name="assets" inverse="true" cascade="all,delete-orphan">
+				<key column="result_id" />
+				<one-to-many class="org.expr.model.analysis.result.FundsAssetResult" />
+			</set>
+			<set name="liabilities" inverse="true" cascade="all,delete-orphan">
+				<key column="result_id" />
+				<one-to-many class="org.expr.model.analysis.result.FundsLiabilityResult" />
+			</set>
+		</component>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,1 @@
+<#if (actionMessages?? && actionMessages?size > 0)><#list actionMessages as amsg>${amsg}</#list></#if>

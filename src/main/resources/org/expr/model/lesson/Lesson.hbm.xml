@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!--课程 -->
+<hibernate-mapping package="org.expr.model.lesson" >
+	<class name="Lesson" >
+		<id name="id"  unsaved-value="null">
+			<generator class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator"/>
+		</id>
+		<property name="seqNo" />
+	    <property name="coursename" />
+	    <property name="beginAt"/>
+		<property name="endAt"/>
+		<list name="teachers">
+		  <key column="lesson_id"/>
+		  <index column= "index"/>
+		  <many-to-many class="com.ekingstar.eams.teacher.Teacher" column="teacher_id"/>
+		</list>
+		<set name="students">
+		  <key column="lesson_id"/>
+		  <many-to-many class="com.ekingstar.eams.student.Student" column="student_id"/>
+		</set>
+		<set name="experiments">
+		  <key column="lesson_id"/>
+		  <many-to-many class="Experiment" column="experiment_id"/>
+		</set>
+	</class>
+</hibernate-mapping>

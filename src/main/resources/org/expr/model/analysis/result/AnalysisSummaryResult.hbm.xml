@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<!-- 客户分析综述答案 -->
+<hibernate-mapping package="org.expr.model.analysis.result">
+	<class name="AnalysisSummaryResult">
+		<id name="id" unsaved-value="null">
+			<generator
+				class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator" />
+		</id>
+		<property name="score" />
+		<many-to-one name="experiment" />
+		<many-to-one name="student" />
+		<property name="remark" />
+	</class>
+</hibernate-mapping>

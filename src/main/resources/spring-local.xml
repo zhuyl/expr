@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<description>general spring beans</description>
+	
+    <!--
+   	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		destroy-method="close">
+		<property name="driverClassName">
+			<value>org.hsqldb.jdbcDriver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:hsqldb:file:/home/chaostone/workspace2/expr/db/securitydb</value>
+		</property>
+		<property name="username">
+			<value>sa</value>
+		</property>
+		<property name="password">
+			<value></value>
+		</property>
+	</bean>
+	--> 
+	
+	<bean id="dataSource"
+		class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName">
+			<value>java:comp/env/jdbc/datasource</value>
+		</property>
+	</bean>
+	
+	<bean name="home" class="org.expr.web.action.HomeAction" autowire="byName">
+	</bean>
+	
+	<!-- mysql5 dialect -->
+	<!--
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="configLocations">
+			<value>classpath*:META-INF/hibernate.cfg.xml</value>
+		</property>
+		<property name="dataSource" ref="dataSource"/>
+		<property name="namingStrategy" ref="railsNamingStrategy"/>
+		<property name="lobHandler" ref="lobHandler"/>
+		<property name="hibernateProperties">
+			<props>
+			    <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+				<prop key="hibernate.connection.provider_class">org.hibernate.connection.DatasourceConnectionProvider</prop>
+				<prop key="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</prop>
+				<prop key="hibernate.query.factory_class">org.hibernate.hql.ast.ASTQueryTranslatorFactory</prop>
+				<prop key="hibernate.max_fetch_depth">1</prop>
+				<prop key="hibernate.default_batch_fetch_size">8</prop>
+				<prop key="hibernate.jdbc.fetch_size">8</prop>
+				<prop key="hibernate.jdbc.batch_size">20</prop>
+				<prop key="hibernate.jdbc.batch_versioned_data">true</prop>
+				<prop key="hibernate.jdbc.use_streams_for_binary">true</prop>
+				<prop key="hibernate.jdbc.use_get_generated_keys">true</prop>
+				<prop key="hibernate.cache.use_second_level_cache">true</prop>
+				<prop key="hibernate.cache.use_query_cache">true</prop>
+				<prop key="hibernate.query.substitutions">true 1, false 0, yes 'Y', no 'N'</prop>
+				<prop key="hibernate.show_sql">false</prop>
+			</props>
+		</property>
+	</bean>
+-->
+</beans>
+

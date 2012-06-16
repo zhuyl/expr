@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<!-- 保单表 -->
+<hibernate-mapping package="org.expr.model.plan.result">
+	<class name="InsurancePlanPolicyResult">
+		<id name="id" unsaved-value="null">
+			<generator
+				class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator" />
+		</id>
+		<many-to-one name="result" not-null="true" />
+		<many-to-one name="product" />
+			<property name="insurant"/>
+			<property name="benefit"/>
+			<property name="proposer"/>
+			<property name="applyOn"/>
+			<property name="coverage"/>
+			<property name="expense"/>
+			<many-to-one name="payTime" />	
+			<many-to-one name="payType" />	
+			<many-to-one name="time" />						
+		<many-to-one name="master" />
+	</class>
+</hibernate-mapping>

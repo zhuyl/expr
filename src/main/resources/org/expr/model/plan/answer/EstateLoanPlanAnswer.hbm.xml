@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+	<!-- 房产规划表 -->
+<hibernate-mapping package="org.expr.model.plan.answer">
+	<class name="EstateLoanPlanAnswer">
+		<id name="id" unsaved-value="null">
+			<generator
+				class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator" />
+		</id>
+		<property name="remark" />
+		<many-to-one name="caze" not-null="true" unique="true" />
+		<map name="loans" cascade="all,delete-orphan">
+			<key column="estate_loan_plan_answer_id" />
+			<map-key type="integer" column="year" />
+			<composite-element class="Loans">
+				<property name="businessCapital" column="business_businessCapital" />
+				<property name="accumulationCapital" column="business_accumulationCapital" />
+				<nested-composite-element name="business"
+					class="LoanPayed">
+					<property name="capital" column="business_captial" />
+					<property name="interest" column="business_interest" />
+				</nested-composite-element>
+				<nested-composite-element name="accumulation"
+					class="LoanPayed">
+					<property name="capital" column="accumulation_captial" />
+					<property name="interest" column="accumulation_interest" />
+				</nested-composite-element>
+			</composite-element>
+		</map>
+		<map name="expenses" cascade="all,delete-orphan">
+			<key column="estate_loan_plan_answer_id" />
+			<map-key type="integer" column="year" />
+			<element type="double" column="expense" />
+		</map>
+		<property name="houseCapital" column="business_houseCapital" />
+		<property name="businessCapital" column="business_businessCapital" />
+		<property name="accumulationCapital" column="business_accumulationCapital" />
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <constant name="struts.objectFactory" value="spring" />
+    <constant name="struts.devMode" value="true" />
+    <constant name="struts.action.extension" value="action,do" />
+    <constant name="struts.custom.i18n.resources" value="beanfuse,application"/>
+
+    <package name="expr" extends="beanfuse">
+        <action name="caze" class="caze"/>
+        <action name="myCaze" class="myCaze"/>
+        <action name="studentCaze" class="studentCaze"/>
+        <action name="financeTool" class="financeTool"/>
+        <action name="financeProduct" class="financeProduct"/>
+        <action name="experiment" class="experiment"/>
+        <action name="experimentStudy" class="experimentStudy"/>
+        <action name="experimentCheck" class="experimentCheck"/>        
+        <action name="lesson" class="lesson"/> 
+        <action name="teacherLesson" class="teacherLesson"/> 
+        <action name="insuranceRate" class="insuranceRate"/>
+        <action name="insurance" class="insurance"/>
+        <action name="finance" class="finance"/>
+        <action name="stdFamilyAnalysis" class="stdFamilyAnalysis"/>   
+        <action name="insuranceAnalysis" class="insuranceAnalysis"/> 
+        <action name="lessonNotice" class="lessonNotice"/>   
+        <action name="lessonMessage" class="lessonMessage"/>  
+        <action name="studyLog" class="studyLog"/>        
+        <action name="riskAttitudeAnalysis" class="riskAttitudeAnalysis"/>    
+        <action name="student" class="exprStudent"/>
+		<action name="teacher" class="exprTeacher"/>
+    </package>
+    
+    <package name="caze" extends="beanfuse" namespace="/answer">
+        <action name="familyAnalysis" class="familyAnalysis"/>
+        <action name="financeAssetAnalysis" class="financeAssetAnalysis"/>        
+        <action name="insuranceAnalysis" class="insuranceAnalysis"/>
+        <action name="answerDashboard" class="answerDashboard"/>
+        <action name="balanceSheet" class="balanceSheet"/>
+        <action name="incomeExpense" class="incomeExpense"/>
+        <action name="insurancePlan" class="insurancePlan"/>
+        <action name="cashPlan" class="cashPlan"/>
+        <action name="bonusPlan" class="bonusPlan"/>
+        <action name="consumePlan" class="consumePlan"/> 
+        <action name="educationPlan" class="educationPlan"/> 
+        <action name="medicalPlan" class="medicalPlan"/>                
+        <action name="tripPlan" class="tripPlan"/>   
+        <action name="investmentPlan" class="investmentPlan"/>   
+        <action name="financeAssetPlan" class="financeAssetPlan"/>        
+        <action name="estateLoanPlan" class="estateLoanPlan"/> 
+        <action name="aimAnalysis" class="aimAnalysis"/> 
+        <action name="riskToleranceAnalysis" class="riskToleranceAnalysis"/>         
+        <action name="analysisSummary" class="analysisSummary"/>      
+        <action name="carPlan" class="carPlan"/>
+        <action name="changeAnalysis" class="changeAnalysis"/> 
+        <action name="benefitAnalysis" class="benefitAnalysis"/> 
+        <action name="riskAnalysis" class="riskAnalysis"/> 
+        <action name="analysisChartsStat" class="analysisChartsStat"/> 
+        <action name="balanceCompare" class="balanceCompare"/>   
+        <action name="financeCompare" class="financeCompare"/>    
+        <action name="insuranceCompare" class="insuranceCompare"/>            
+        <action name="otherIncomePlan" class="otherIncomePlan"/>  
+        <action name="otherExpensePlan" class="otherExpensePlan"/>  
+        <action name="planSummary" class="planSummary"/>        
+     </package>
+     
+     <package name="result" extends="beanfuse" namespace="/result">
+        <action name="resultDashboard" class="resultDashboard"/>
+        <action name="familyAnalysis" class="result/familyAnalysis"/>
+        <action name="balanceSheet" class="result/balanceSheet"/>  
+        <action name="incomeExpense" class="result/incomeExpense"/>  
+        <action name="insuranceAnalysis" class="result/insuranceAnalysis"/> 
+        <action name="financeAssetAnalysis" class="result/financeAssetAnalysis"/>  
+        <action name="riskToleranceAnalysis" class="result/riskToleranceAnalysis"/>
+        <action name="analysisSummary" class="result/analysisSummary"/> 
+        <action name="aimAnalysis" class="result/aimAnalysis"/>         
+        <action name="cashPlan" class="result/cashPlan"/>
+        <action name="bonusPlan" class="result/bonusPlan"/>
+        <action name="otherIncomePlan" class="result/otherIncomePlan"/>                       
+        <action name="consumePlan" class="result/consumePlan"/>
+        <action name="educationPlan" class="result/educationPlan"/>
+        <action name="medicalPlan" class="result/medicalPlan"/>   
+        <action name="tripPlan" class="result/tripPlan"/>      
+        <action name="carPlan" class="result/carPlan"/>   
+        <action name="estateLoanPlan" class="result/estateLoanPlan"/>      
+        <action name="otherExpensePlan" class="result/otherExpensePlan"/>  
+        <action name="insurancePlan" class="result/insurancePlan"/> 
+        <action name="financeAssetPlan" class="result/financeAssetPlan"/> 
+        <action name="planSummary" class="result/planSummary"/>  
+        <action name="changeAnalysis" class="result/changeAnalysis"/>                          
+        <action name="benefitAnalysis" class="result/benefitAnalysis"/> 
+        <action name="riskAnalysis" class="result/riskAnalysis"/> 
+        <action name="balanceCompare" class="result/balanceCompare"/> 
+        <action name="financeCompare" class="result/financeCompare"/>   
+        <action name="insuranceCompare" class="result/insuranceCompare"/>                 
+     </package>
+    
+    <package name="insurance" extends="beanfuse" namespace="/insurance">
+        <action name="career" class="career"/>
+        <action name="payTimeRate" class="payTimeRate"/>
+        <action name="careerRate" class="careerRate"/>
+        <action name="careerProfile" class="careerProfile"/> 
+     </package>
+      
+     <package name="questionnaire" extends="beanfuse" namespace="/questionnaire">
+        <action name="questionnaire" class="questionnaire"/>
+        <action name="question" class="question"/>
+        <action name="option" class="option"/>
+        <action name="scorerank" class="scoreRank"/>
+     </package>
+     
+      <package name="assessment" extends="beanfuse" namespace="/assessment">
+        <action name="assessment" class="assessment"/>
+        <action name="assessItem" class="assessItem"/>
+     </package>
+     
+     
+     <package name="exam" extends="beanfuse" namespace="/exam">
+        <action name="examQuestion" class="examQuestion"/>
+        <action name="examItem" class="examItem"/>
+        <action name="examOption" class="examOption"/>
+        <action name="examTeacher" class="examTeacher"/>
+        <action name="examStudent" class="examStudent"/>
+     </package>
+</struts>
+

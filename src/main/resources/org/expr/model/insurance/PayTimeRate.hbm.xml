@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!--费率表-->
+<hibernate-mapping package="org.expr.model.insurance" >
+	<class name="PayTimeRate" >
+		<id name="id"  unsaved-value="null">
+			<generator class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator"/>
+		</id>
+		<many-to-one name="product" />
+		<many-to-one name="paytime" />
+		<many-to-one name="time" />
+		<many-to-one name="gender" />
+		<many-to-one name="paytype" />
+		<map name="agerates" cascade="all,delete-orphan">
+			<key column="pay_time_rate_id" />
+			<map-key type="integer" column="age" />
+			<element type="float" column="rate" />
+		</map>
+	</class>
+</hibernate-mapping>

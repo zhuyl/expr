@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 客户风险承受能力文本分析表 -->
+<hibernate-mapping package="org.expr.model.analysis.result">
+	<class name="TextAnalysisResult">
+		<id name="id" unsaved-value="null">
+			<generator
+				class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator" />
+		</id>
+		<property name="score" />
+		<many-to-one name="experiment" />
+		<property name="remark" />
+		<component name="form">
+			<property name="content" />
+			<many-to-one name="analysis" />
+		</component>
+	</class>
+</hibernate-mapping>

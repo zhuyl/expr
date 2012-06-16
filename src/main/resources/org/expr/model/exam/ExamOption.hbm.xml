@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 小题表 -->
+<hibernate-mapping package="org.expr.model.exam" >
+	<class name="ExamOption" >
+		<id name="id"  unsaved-value="null">
+			<generator class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator"/>
+		</id>   
+		<property name="code" />
+		<property name="description" />
+		<many-to-one name="item" />
+	</class>
+</hibernate-mapping>

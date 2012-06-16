@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- 金融理财工具-->
+<hibernate-mapping package="org.expr.model.basecode" >
+	<class name="FinanceTool" >
+		<id name="id"  unsaved-value="null">
+			<generator class="org.beanfuse.persist.hibernate.TableNameSequenceGenerator"/>
+		</id>
+		<property name="code" not-null="true"  length="32" unique="true"/>
+		<property name="name" not-null="true"  length="100"/>
+		<property name="engName"  length="100"/>
+		<property name="createdAt"  not-null="true"/>
+		<property name="updatedAt"  not-null="true"/>	
+		<property name="enabled"  not-null="true"/>
+		<many-to-one name="category" />		
+	</class>
+</hibernate-mapping>
